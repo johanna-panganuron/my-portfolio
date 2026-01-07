@@ -1,0 +1,517 @@
+.project-detail-page {
+    min-height: 100vh;
+    background: var(--background-alt);
+    padding: 3rem 0;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray-600);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.back-link:hover {
+    color: var(--black);
+}
+
+.project-header {
+    margin-bottom: 3rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.project-meta {
+    display: flex;
+    gap: 2rem;
+    color: var(--text-light);
+}
+
+.meta-item {
+    background: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+.main-image-container {
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.project-descriptionz h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.project-descriptionz p {
+    color: var(--text-light);
+    line-height: 1.8;
+    white-space: pre-line;
+    font-size: 1rem;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.details-card {
+    background: var(--white);
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.details-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.technologies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background: var(--background-alt);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    color: var(--text-light);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.features-list li::before {
+    content: '✓';
+    color: var(--black);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Screenshots Section */
+.screenshots-section {
+    margin-bottom: 4rem;
+}
+
+.screenshots-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.screenshot-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.screenshot-item:hover {
+    transform: translateY(-5px);
+}
+
+.screenshot-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Project Links */
+.project-links-section {
+    margin-bottom: 4rem;
+}
+
+.project-links-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+}
+
+.links-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--black);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.project-link-btn:hover {
+    background: var(--text);
+    transform: translateY(-2px);
+}
+
+/* Navigation */
+.project-navigation {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.nav-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--text);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: var(--background-alt);
+    border-color: var(--black);
+}
+.carousel-container {
+    margin-bottom: 3rem;
+}
+
+.carousel-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+}
+
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    /* aspect-ratio: 16 / 9; */
+    /* background: var(--white); */
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%);
+}
+
+.carousel-btn-prev {
+    left: 20px;
+}
+
+.carousel-btn-next {
+    right: 20px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--text);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.indicator.active {
+    background: var(--black);
+    border-color: var(--black);
+}
+
+.indicator:hover {
+    transform: scale(1.2);
+}
+
+.project-detail-page svg {
+    width: 1em;
+    height: 1em;
+}
+
+.carousel-btn svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+/* Responsive */
+@media (max-width: 968px) {
+    .project-detail-page {
+        padding: 3rem 0;
+    }
+
+    .project-title {
+        font-size: 2.2rem;
+    }
+
+    .project-info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .carousel-slide {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-detail-page {
+        padding: 2rem 0;
+    }
+
+    .back-link {
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .project-header {
+        margin-bottom: 2rem;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .meta-item {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .project-info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .project-descriptionz h2,
+    .project-links-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-descriptionz p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .details-card {
+        padding: 1.5rem;
+    }
+
+    .details-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .tech-badge {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .features-list li {
+        font-size: 0.9rem;
+        padding: 0.4rem 0;
+    }
+
+    .screenshots-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .links-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .project-link-btn {
+        justify-content: center;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .project-links-section {
+        margin-bottom: 3rem;
+    }
+
+    .project-navigation {
+        padding-top: 2rem;
+    }
+
+    .nav-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .carousel-slide {
+        height: 300px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-btn-prev {
+        left: 10px;
+    }
+
+    .carousel-btn-next {
+        right: 10px;
+    }
+
+    .carousel-indicators {
+        margin-top: 15px;
+        gap: 8px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-width: 1.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-detail-page {
+        padding: 1.5rem 0;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .project-descriptionz h2,
+    .project-links-section h2 {
+        font-size: 1.3rem;
+    }
+    .project-descriptionz p {
+        font-size: 0.9rem;
+    }
+    .carousel-slide {
+        height: 250px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carousel-btn svg {
+        width: 1em;
+        height: 1em;
+    }
+    .carousel-indicators {
+        margin-top: 12px; 
+        gap: 6px; 
+    }
+
+    .indicator {
+        width: 8px; 
+        height: 8px; 
+        border-width: 1.5px; 
+    }
+    .details-card {
+        padding: 1.25rem;
+    }
+
+    .project-link-btn {
+        padding: 0.8rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .project-link-btn svg {
+        width: 0.9em;
+        height: 0.9em;
+    }
+}

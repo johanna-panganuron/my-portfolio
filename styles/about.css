@@ -1,0 +1,409 @@
+.about-page {
+    min-height: 100vh;
+    background: var(--background-alt);
+    padding: 5rem 0;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Profile Section */
+.about-profile {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    background: var(--white);
+    padding: 3rem;
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+/* Profile Image */
+.profile-image-container {
+    /* width: 200px; */
+    /* height: 170px; */
+    position: relative;
+    flex-shrink: 0;
+}
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    /* filter: grayscale(100%); */
+    transition: all 0.5s ease;
+}
+
+
+.profile-image:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.profile-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 900;
+}
+
+.profile-role {
+    font-size: 1.2rem;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 1rem;
+}
+
+.profile-bio {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* Feature Cards */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--black);
+    box-shadow: 0 8px 30px var(--shadow-hover);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 1.1rem;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.resume-btn:hover {
+    background: var(--text);
+    transform: translateY(-2px);
+}
+/* OJT Section */
+.ojt-section {
+    background: var(--white);
+    padding: 3rem;
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.ojt-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 1.5rem;
+}
+
+.ojt-section p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* Skills Section */
+.skills-section {
+    background: var(--white);
+    padding: 3rem;
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.skill-tag {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+}
+
+/* Education Section */
+.education-section {
+    background: var(--white);
+    padding: 3rem;
+    border: 1px solid var(--border);
+}
+
+.education-card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    background: var(--background-alt);
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+}
+
+/* School logo styling */
+.school-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.school-logo {
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Update feature icon container to handle images */
+.feature-card .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
+
+.education-card .education-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+}
+
+.education-info h3 {
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.education-school {
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.education-year {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+    .about-page {
+        padding: 3rem 0;
+    }
+
+    .about-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .about-profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .profile-image-container {
+        margin: 0 auto;
+    }
+
+    .profile-info h2 {
+        font-size: 1.75rem;
+    }
+
+    .profile-role {
+        font-size: 0.9rem;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .school-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-page {
+        padding: 2rem 0;
+    }
+
+    .about-profile {
+        padding: 1.5rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .profile-bio {
+        font-size: 0.95rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .ojt-section,
+    .skills-section,
+    .education-section {
+        padding: 2rem;
+    }
+
+    .ojt-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .ojt-section p {
+        font-size: 0.95rem;
+    }
+
+    .education-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .education-info h3 {
+        font-size: 1.1rem;
+    }
+    .resume-btn {
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .profile-image-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .skill-tag {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    .ojt-section,
+    .skills-section,
+    .education-section {
+        padding: 1.5rem;
+    }
+    .resume-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
