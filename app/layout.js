@@ -9,7 +9,7 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Johanna Panganuron - Portfolio',
+  title: 'Johanna B. Panganuron - Portfolio',
   description: 'Full-stack developer portfolio showcasing web development projects and technical skills.',
   keywords: 'React, Next.js, Node.js, PHP, Laravel, MySQL, Web Development',
 }
