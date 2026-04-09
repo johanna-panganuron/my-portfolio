@@ -2,6 +2,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { projectDetails } from './page'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
@@ -25,8 +26,8 @@ export default function ProjectDetailClient({ project }) {
   return (
     <div className="project-detail-page">
       <div className="container">
-        <motion.div 
-          onClick={() => router.back()} 
+        <motion.div
+          onClick={() => router.back()}
           className="back-link"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -36,7 +37,7 @@ export default function ProjectDetailClient({ project }) {
         </motion.div>
 
         {/* Project Header */}
-        <motion.div 
+        <motion.div
           className="project-header"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,11 +70,26 @@ export default function ProjectDetailClient({ project }) {
                 width={1200}
                 height={600}
                 className="carousel-image"
-                quality={100}
-                unoptimized
+                quality={85}
                 priority
               />
             </div>
+
+            {/* Preload adjacent images */}
+            {project.screenshots.map((src, index) => (
+              index !== currentSlide && (
+                <Image
+                  key={index}
+                  src={src}
+                  alt=""
+                  width={1200}
+                  height={600}
+                  quality={85}
+                  style={{ display: 'none' }}
+                  priority={Math.abs(index - currentSlide) === 1}
+                />
+              )
+            ))}
 
             <button className="carousel-btn carousel-btn-next" onClick={nextSlide} aria-label="Next slide">
               <FontAwesomeIcon icon={faChevronRight} />
@@ -92,9 +108,9 @@ export default function ProjectDetailClient({ project }) {
             ))}
           </div>
         </div>
-
+        
         {/* Project Info Grid */}
-        <motion.div 
+        <motion.div
           className="project-info-grid"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +123,7 @@ export default function ProjectDetailClient({ project }) {
           </div>
 
           <div className="project-details">
-            <motion.div 
+            <motion.div
               className="details-card"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -117,8 +133,8 @@ export default function ProjectDetailClient({ project }) {
               <h3>Technologies Used</h3>
               <div className="technologies-list">
                 {project.technologies.map((tech, index) => (
-                  <motion.span 
-                    key={index} 
+                  <motion.span
+                    key={index}
                     className="tech-badge"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -131,7 +147,7 @@ export default function ProjectDetailClient({ project }) {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="details-card"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -141,7 +157,7 @@ export default function ProjectDetailClient({ project }) {
               <h3>Key Features</h3>
               <ul className="features-list">
                 {project.features.map((feature, index) => (
-                  <motion.li 
+                  <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -157,7 +173,7 @@ export default function ProjectDetailClient({ project }) {
         </motion.div>
 
         {/* Project Links */}
-        <motion.div 
+        <motion.div
           className="project-links-section"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -167,10 +183,10 @@ export default function ProjectDetailClient({ project }) {
           <h2>Project Links</h2>
           <div className="links-container">
             {project.githubLink && (
-              <motion.a 
-                href={project.githubLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <motion.a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-link-btn"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -180,10 +196,10 @@ export default function ProjectDetailClient({ project }) {
             )}
 
             {project.liveLink && (
-              <motion.a 
-                href={project.liveLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <motion.a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-link-btn"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -193,10 +209,10 @@ export default function ProjectDetailClient({ project }) {
             )}
 
             {project.figmaLink && (
-              <motion.a 
-                href={project.figmaLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <motion.a
+                href={project.figmaLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-link-btn"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -206,10 +222,10 @@ export default function ProjectDetailClient({ project }) {
             )}
 
             {project.youtubeLink && (
-              <motion.a 
-                href={project.youtubeLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <motion.a
+                href={project.youtubeLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="project-link-btn"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -219,9 +235,37 @@ export default function ProjectDetailClient({ project }) {
             )}
           </div>
         </motion.div>
-
+        {/* Other Projects */}
+        <motion.div
+          className="other-projects-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Other Projects</h2>
+          <div className="other-projects-grid">
+            {Object.entries(projectDetails)
+              .filter(([slug]) => slug !== project.slug)
+              .map(([slug, proj]) => (
+                <Link key={slug} href={`/projects/${slug}`} className="other-project-card">
+                  <div className="other-project-img-wrap">
+                    <img src={proj.mainImage} alt={proj.title} className="other-project-img" />
+                  </div>
+                  <div className="other-project-info">
+                    <h3>{proj.title}</h3>
+                    <div className="other-project-tags">
+                      {proj.technologies.map((tech, i) => (
+                        <span key={i} className="tech-badge">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </motion.div>
         {/* Navigation */}
-        <motion.div 
+        <motion.div
           className="project-navigation"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

@@ -75,16 +75,7 @@ export default function Contact() {
             <h2>Contact Information</h2>
 
             <div className="info-items">
-              <div className="info-item">
-                <div className="info-icon">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </div>
-                <div className="info-text">
-                  <h3>Email</h3>
-                  <p>johannapanganuron@gmail.com</p>
-                </div>
-              </div>
-
+             
               <div className="info-item">
                 <div className="info-icon">
                   <FontAwesomeIcon icon={faPhone} />
@@ -92,6 +83,16 @@ export default function Contact() {
                 <div className="info-text">
                   <h3>phone number</h3>
                   <p>+63 949 128 0100</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="info-icon">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </div>
+                <div className="info-text">
+                  <h3>Email</h3>
+                  <p>johannapanganuron@gmail.com</p>
                 </div>
               </div>
 
@@ -130,7 +131,7 @@ export default function Contact() {
               <a href="https://github.com/johanna-panganuron" target="_blank" rel="noopener noreferrer" className="social-btn">
                 <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://www.linkedin.com/in/panganuron-johanna/" target="_blank" rel="noopener noreferrer" className="social-btn">
+              <a href="https://www.linkedin.com/in/johanna-panganuron/" target="_blank" rel="noopener noreferrer" className="social-btn">
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
             </div>

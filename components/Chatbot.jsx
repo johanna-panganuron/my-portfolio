@@ -2,70 +2,101 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { FaLaptopCode, FaFolderOpen, FaEnvelope, FaBriefcase, FaUser, FaTrophy } from 'react-icons/fa'
 import Image from 'next/image'
 import '../styles/chatbot.css'
 
+const quickReplies = [
+  { label: 'Skills', icon: <FaLaptopCode /> },
+  { label: 'Projects', icon: <FaFolderOpen /> },
+  { label: 'Contact', icon: <FaEnvelope /> },
+  { label: 'For Hire?', icon: <FaBriefcase /> },
+  { label: 'About', icon: <FaUser /> },
+]
 export default function Chatbot() {
   const [showChatbot, setShowChatbot] = useState(false)
   const [messages, setMessages] = useState([
-    { text: "Hi! I'm Johanna. Ask me anything about myself!", sender: 'bot' }
+    { text: "Hi! I'm Johanna. Ask me anything about myself!", sender: 'bot', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
   ])
   const [input, setInput] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
+
+  const getTime = () => {
+    const now = new Date()
+    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  }
 
   const getBotResponse = (userMessage) => {
     const msg = userMessage.toLowerCase()
-    
-    if (msg.includes('skill') || msg.includes('technology') || msg.includes('tech stack') || msg.includes('what can you do')) {
-      return "I'm skilled in Vue, Vite, React, Next.js, Node.js, Laravel, MySQL, MongoDB, and more! I'm a full-stack developer with expertise in both frontend and backend technologies."
-    } else if (msg.includes('project')) {
-      return "I've worked on several projects including a Pet Grooming Management System, CPC Voting System, Task Tracker, and CPC Library Management System. You can view them in the Projects section!"
-    } else if (msg.includes('education') || msg.includes('school') || msg.includes('study') || msg.includes('college')) {
-      return "I'm currently pursuing a Bachelor of Science in Information Technology at Cordova Public College, expected to graduate in 2026."
-    } else if (msg.includes('ojt') || msg.includes('internship') || msg.includes('job') || msg.includes('work') || msg.includes('hire')) {
-      return "I'm actively seeking OJT opportunities where I can apply my technical skills in a professional environment and contribute to real-world projects!"
-    } else if (msg.includes('contact') || msg.includes('email') || msg.includes('reach') || msg.includes('phone') || msg.includes('call')) {
-      return "You can reach me at johannapanganuron@gmail.com or call me at 09491280100. You can also connect with me on Facebook, GitHub, or LinkedIn!"
-    } else if (msg.includes('about') || msg.includes('who') || msg.includes('tell me about')) {
-      return "I'm a BSIT student and aspiring full-stack developer passionate about creating efficient web applications using modern technologies."
+
+    if (msg.includes('hire') || msg.includes('job') || msg.includes('available') || msg.includes('opportunity')) {
+      return "I'm a fresh IT graduate open to full-time, part-time, or freelance opportunities. Feel free to reach out via the Contact page. 📬"
+
     } else if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good morning') || msg.includes('good afternoon')) {
-      return "Hello! Nice to meet you! What would you like to know about me?"
+      return "Hello! Nice to meet you. What would you like to know about me? 👋"
+
+    } else if (msg.includes('skill') || msg.includes('technology') || msg.includes('tech stack') || msg.includes('what can you do')) {
+      return "I'm skilled in Vue, React, Next.js, Node.js, Laravel, PHP, MySQL, MongoDB, and more — covering both frontend and backend development. 💻"
+
+    } else if (msg.includes('project') || msg.includes('portfolio') || msg.includes('built') || msg.includes('made')) {
+      return "Here are some of my projects:\n\n• Pet Grooming Management System\n• CPC SSG Voting System\n• Task Tracker\n• CPC Library Management System\n\nVisit the Projects page to see the full details. 🚀"
+
+    } else if (msg.includes('build') || msg.includes('create') || msg.includes('develop') || msg.includes('website') || msg.includes('app') || msg.includes('system')) {
+      return "I'd love to help build something for you. Whether it's a website, web app, or a custom system — reach out via the Contact page and let's talk. 🤝"
+
+    } else if (msg.includes('education') || msg.includes('school') || msg.includes('college') || msg.includes('degree')) {
+      return "I graduated with a Bachelor of Science in Information Technology from Cordova Public College (2022–2026), with TESDA certifications in Creative Web Design and Computer Systems Servicing (NC II). 🎓"
+
+    } else if (msg.includes('experience') || msg.includes('ojt') || msg.includes('internship')) {
+      return "I completed my OJT at DSWD - Pantawid Pamilyang Pilipino Program (4Ps) in Cordova, Cebu as a Data Encoder from January to April 2026. 📋"
+
+    } else if (msg.includes('hire') || msg.includes('job') || msg.includes('available') || msg.includes('opportunity')) {
+      return "I'm a fresh IT graduate open to full-time, part-time, or freelance opportunities. Feel free to reach out via the Contact page. 📬"
+
+    } else if (msg.includes('award') || msg.includes('achievement') || msg.includes('hackathon')) {
+      return "I won 3rd Place and Best Technical Implementation at the Mini Hackathon (Figma) during IT Day at Cordova Public College in March 2026. 🏆"
+
+    } else if (msg.includes('contact') || msg.includes('email') || msg.includes('reach') || msg.includes('phone')) {
+      return "You can reach me at johannapanganuron@gmail.com or call 0949 1280 100. I'm also on Facebook, GitHub, and LinkedIn. 📩"
+
+    } else if (msg.includes('about') || msg.includes('who are you') || msg.includes('tell me about')) {
+      return "I'm Johanna, a fresh IT graduate and Junior Full-Stack Web Developer passionate about building functional and user-friendly web applications. Check my About page to learn more. 😊"
+
     } else if (msg.includes('thank') || msg.includes('thanks')) {
-      return "You're welcome! Feel free to ask me anything else about my skills, projects, or experience!"
+      return "You're welcome! Feel free to ask me anything else. 😊"
+
     } else if (msg.includes('bye') || msg.includes('goodbye') || msg.includes('see you')) {
-      return "Goodbye! Feel free to come back anytime if you have more questions. Have a great day!"
+      return "Goodbye! Have a great day. Feel free to come back anytime. 👋"
+
     } else {
-      return "I'm here to help you learn about my portfolio! I can answer questions about:\n\n• My technical skills and technologies\n• Projects I've worked on\n• My education background\n• OJT opportunities\n• How to contact me\n\nWhat would you like to know?"
+      return "I'm here to help! You can ask me about:\n\n• My skills & tech stack\n• Projects I've built\n• My education & certifications\n• Work experience\n• How to contact me\n• Awards & achievements\n\nWhat would you like to know? 😊"
     }
   }
 
-  const handleSend = () => {
-    if (!input.trim()) return
-  
-    const userMessage = { text: input, sender: 'user' }
+  const handleSend = (customMessage) => {
+    const messageText = customMessage || input
+    if (!messageText.trim()) return
+
+    const userMessage = { text: messageText, sender: 'user', time: getTime() }
     setMessages(prev => [...prev, userMessage])
-  
-    setTimeout(() => {
-      const botMessage = { text: getBotResponse(input), sender: 'bot' }
-      setMessages(prev => [...prev, botMessage])
-      
-      // Auto scroll to bottom
-      setTimeout(() => {
-        const messagesContainer = document.querySelector('.chatbot-messages')
-        if (messagesContainer) {
-          messagesContainer.scrollTop = messagesContainer.scrollHeight
-        }
-      }, 100)
-    }, 500)
-  
     setInput('')
-    
-    // Scroll after user message
+    setIsTyping(true)
+
     setTimeout(() => {
       const messagesContainer = document.querySelector('.chatbot-messages')
-      if (messagesContainer) {
-        messagesContainer.scrollTop = messagesContainer.scrollHeight
-      }
+      if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight
     }, 100)
+
+    setTimeout(() => {
+      setIsTyping(false)
+      const botMessage = { text: getBotResponse(messageText), sender: 'bot', time: getTime() }
+      setMessages(prev => [...prev, botMessage])
+
+      setTimeout(() => {
+        const messagesContainer = document.querySelector('.chatbot-messages')
+        if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight
+      }, 100)
+    }, 1500)
   }
 
   const handleKeyPress = (e) => {
@@ -74,20 +105,33 @@ export default function Chatbot() {
 
   return (
     <div className={`chatbot-container ${showChatbot ? 'open' : ''}`}>
-      <button 
-        className="chatbot-toggle" 
+      {!showChatbot && (
+        <div className="chatbot-bubble" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          Ask me anything!👋
+          <span
+            onClick={(e) => { e.stopPropagation(); document.querySelector('.chatbot-bubble').style.display = 'none'; }}
+            style={{ cursor: 'pointer', fontWeight: 'bold', fontSize: '0.85rem', lineHeight: 1 }}
+          >
+            ✕
+          </span>
+        </div>
+      )}
+
+      <button
+        className="chatbot-toggle"
         onClick={() => setShowChatbot(!showChatbot)}
         aria-label="Toggle chatbot"
       >
         {showChatbot ? (
           <FontAwesomeIcon icon={faTimes} />
         ) : (
-          <Image 
-            src="/images/profile.png" 
-            alt="Chat with Johanna" 
-            width={60} 
+          <Image
+            src="/images/profile.png"
+            alt="Chat with Johanna"
+            width={60}
             height={60}
             className="chatbot-avatar"
+            quality={100}
           />
         )}
       </button>
@@ -96,15 +140,16 @@ export default function Chatbot() {
         <div className="chatbot-window">
           <div className="chatbot-header">
             <div className="chatbot-header-content">
-              <Image 
-                src="/images/profile.png" 
-                alt="Johanna" 
-                width={40} 
+              <Image
+                src="/images/profile.png"
+                alt="Johanna"
+                width={40}
                 height={40}
                 className="chatbot-header-avatar"
+                quality={100}
               />
               <div>
-                <h3>Johanna Panganuron</h3>
+                <h3>Johanna B. Panganuron</h3>
                 <span className="chatbot-status">Online</span>
               </div>
             </div>
@@ -112,21 +157,45 @@ export default function Chatbot() {
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
-          
+
           <div className="chatbot-messages">
             {messages.map((msg, idx) => (
               <div key={idx} className={`message ${msg.sender}`}>
                 {msg.sender === 'bot' && (
-                  <Image 
-                    src="/images/profile.png" 
-                    alt="Johanna" 
-                    width={30} 
-                    height={30}
-                    className="message-avatar"
-                  />
+                  <Image src="/images/profile.png" alt="Johanna" width={30} height={30} className="message-avatar" />
                 )}
-                <div className="message-text">{msg.text}</div>
+                <div className="message-wrapper">
+                  <div className="message-text">
+                    {msg.text.split('\n').map((line, i) => (
+                      <span key={i}>{line}<br /></span>
+                    ))}
+                  </div>
+                  <span className="message-time">{msg.time}</span>
+                </div>
               </div>
+            ))}
+
+            {/* Typing Indicator */}
+            {isTyping && (
+              <div className="message bot">
+                <Image src="/images/profile.png" alt="Johanna" width={30} height={30} className="message-avatar" />
+                <div className="message-wrapper">
+                  <div className="message-text typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Quick Replies */}
+          <div className="chatbot-quick-replies">
+            {quickReplies.map((reply, index) => (
+              <button key={index} className="quick-reply-btn" onClick={() => handleSend(reply.label)}>
+                {reply.icon} {reply.label}
+              </button>
             ))}
           </div>
 
@@ -138,7 +207,7 @@ export default function Chatbot() {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
             />
-            <button onClick={handleSend}>
+            <button onClick={() => handleSend()}>
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </div>

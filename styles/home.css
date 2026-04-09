@@ -19,10 +19,102 @@
 .tech-card.scroll-animate {
     transition-delay: var(--animation-delay, 0s);
 }
+
+/* About Me Section */
+.home-about {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.home-about-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.home-about-img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 280px;
+    height: 280px;
+    border: 3px solid var(--border);
+}
+
+.home-about-content h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+}
+
+.home-about-role {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.home-about-bio {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.home-feature-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.home-feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.home-feature-card:hover {
+    border-color: var(--black);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.home-feature-icon {
+    font-size: 1.3rem;
+    color: var(--black);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.home-feature-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    color: var(--black);
+}
+
+.home-feature-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.home-about-btn {
+    display: inline-block;
+}
+
+.home-about-btn,
+.home-projects-cta .btn-outline,
+.home-contact .btn-primary {
+    padding: 0.6rem 2rem;
+    font-size: 0.85rem;
+}
+
 /* Featured Projects Section */
 .featured-projects {
     padding: 5rem 0;
-    background: var(--background-alt);
+    background: var(--background-white);
 }
 
 .featured-projects .section-header {
@@ -35,6 +127,9 @@
     max-width: 900px;
     margin: 0.5rem auto 0;
     font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 1rem;
 }
 
 .home-projects-grid {
@@ -88,15 +183,16 @@
     flex-direction: column;
     flex-grow: 1;
 }
+
 .home-project-title {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
     color: var(--text);
     font-weight: 700;
 }
-.home-project-description{
-    font-size: 0.9rem;
-}
+
+
+
 .project-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
@@ -140,16 +236,16 @@
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
-    padding: 0.4rem 0.8rem;
-    border: 1px solid var(--border);
-    background: var(--white);
+    padding: 0.4rem 0;
+    border: none;
+    background: transparent;
     transition: all 0.3s ease;
 }
 
 .home-project-link:hover {
-    color: var(--white);
-    background: var(--text);
-    border-color: var(--text);
+    color: var(--text-light);
+    background: transparent;
+    gap: 0.6rem;
 }
 
 .home-projects-cta {
@@ -157,20 +253,50 @@
     margin-top: 2rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .featured-projects {
-        padding: 3rem 0;
-    }
+/* Contact Section */
+.home-contact {
+    padding: 3rem 0 0;
+    /* background: var(--background-alt); */
+    text-align: center;
+    animation: fadeInUp 0.6s ease;
+}
 
-    .home-projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+.home-contact-box {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    .project-image {
-        height: 180px;
-    }
+.home-contact .section-title {
+    color: var(--white);
+}
+
+.home-contact .section-title::after {
+    background: var(--white);
+}
+
+.home-contact-subtitle {
+    color: var(--gray-400);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.home-contact .btn-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--white);
+}
+
+.home-contact .btn-primary:hover {
+    background: transparent;
+    color: var(--white);
+}
+
+.home-projects-cta .btn-primary {
+    padding: 0.6rem 2rem;
+    font-size: 0.85rem;
+    /* text-transform: none; */
 }
 
 /* For Real Photo */
@@ -253,6 +379,32 @@
     margin-bottom: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-subtitle-icon {
+    font-size: 20px;
+    color: var(--gray-300);
+    flex-shrink: 0;
+    animation: fadeRole 0.4s ease;
+    background: transparent;
+    /* 👈 add */
+    fill: currentColor;
+    /* 👈 add */
+}
+
+@keyframes fadeRole {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .hero-description {
@@ -266,6 +418,11 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.85rem;
 }
 
 .hero .btn-primary {
@@ -295,6 +452,10 @@
     transform-origin: 70% 70%;
     display: inline-block;
     font-size: 1em;
+    font-style: normal;
+    background: transparent !important;
+    /* 👈 force transparent */
+    font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
 
 @keyframes wave {
@@ -450,6 +611,7 @@
         transform: translateX(0);
     }
 }
+
 /* Hide mobile image by default */
 .hero-image-mobile {
     display: none;
@@ -459,16 +621,43 @@
 .hero-image-desktop {
     display: flex;
 }
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
+.role-text {
+    display: inline;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+    font-weight: 300;
+    color: var(--gray-300);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
 /* Responsive */
 @media (max-width: 968px) {
     .hero {
@@ -489,6 +678,19 @@
         justify-content: center;
     }
 
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        justify-content: center;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
     /* Hide desktop image */
     .hero-image-desktop {
         display: none;
@@ -506,22 +708,79 @@
         height: 200px;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
+    .section-title {
+        font-size: 1.8rem;
     }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
+    .home-contact .section-title {
+        font-size: 1.8rem;
     }
 
-    .hero-description {
+    .home-about-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .home-about-role {
+        font-size: 1rem;
+    }
+
+    .home-about-bio {
         font-size: 0.95rem;
+    }
+
+    .home-feature-card h4 {
+        font-size: 0.95rem;
+    }
+
+    .home-feature-card p {
+        font-size: 0.85rem;
+    }
+
+    .featured-projects .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .home-project-title {
+        font-size: 1.2rem;
+    }
+
+
+    .tech-stack {
+        overflow-x: hidden;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .hero {
         padding: 4rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-subtitle-icon {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+
+    .hero-buttons .btn {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
     }
 
     .profile-image-wrapper {
@@ -536,37 +795,70 @@
         left: -10px;
     }
 
-    .hero h1 {
-        font-size: 2rem;
+    .section-title {
+        font-size: 1.5rem;
     }
 
-    .hero-subtitle {
-        font-size: 1rem;
+    .home-contact .section-title {
+        font-size: 1.5rem;
     }
 
-    .hero-buttons {
-        flex-direction: row;
-        gap: 0.75rem;
+    .home-about-content h3 {
+        font-size: 1.3rem;
     }
 
-    .hero-buttons .btn {
-        flex: 1;
-        padding: 0.75rem 1rem;
+    .home-about-role {
+        font-size: 0.95rem;
+    }
+
+    .home-about-bio {
         font-size: 0.9rem;
     }
 
+    .home-about-content {
+        text-align: center;
+    }
+
+    .home-feature-card {
+        text-align: left;
+    }
+
+    .home-feature-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .home-feature-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .home-feature-card p {
+        font-size: 0.82rem;
+    }
+
+    .tech-stack {
+        overflow-x: hidden;
+    }
+
     .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
     }
 
     .tech-card {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .tech-icon-img {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .featured-projects {
+        padding: 3rem 0;
+    }
+
+    .featured-projects .section-subtitle {
+        font-size: 0.9rem;
     }
 
     .home-projects-grid {
@@ -575,7 +867,38 @@
     }
 
     .project-image {
-        height: 200px;
+        height: 180px;
+    }
+
+    .home-project-title {
+        font-size: 1.1rem;
+    }
+
+    .project-description {
+        font-size: 0.78rem !important;
+    }
+
+
+    .home-projects-cta .btn-outline {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .home-contact {
+        padding: 2rem 1rem;
+    }
+
+    .home-contact-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .home-contact .btn-primary {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .home-contact-subtitle {
+        font-size: 0.9rem;
     }
 
     .scroll-to-top {
@@ -595,23 +918,10 @@
         font-size: 0.9rem;
     }
 
-    .profile-image-wrapper {
-        width: 200px;
-        height: 200px;
+    .hero-subtitle-icon {
+        font-size: 16px;
     }
 
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-
-    .tech-name {
-        font-size: 0.75rem;
-    }
-
-    .home-project-card {
-        margin: 0 0.5rem;
-    }
     .hero-buttons {
         flex-direction: row;
         gap: 0.5rem;
@@ -621,5 +931,98 @@
         flex: 1;
         padding: 0.7rem 0.8rem;
         font-size: 0.85rem;
+    }
+
+    .profile-image-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .home-contact .section-title {
+        font-size: 1.3rem;
+    }
+
+    .home-about-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .home-about-role {
+        font-size: 0.9rem;
+    }
+
+    .home-about-bio {
+        font-size: 0.85rem;
+    }
+
+    .home-feature-card h4 {
+        font-size: 0.85rem;
+    }
+
+    .home-feature-card p {
+        font-size: 0.8rem;
+    }
+
+    .tech-stack {
+        overflow-x: hidden;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .tech-card {
+        padding: 0.75rem;
+    }
+
+    .tech-icon-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .tech-name {
+        font-size: 0.65rem;
+    }
+
+    .featured-projects .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .home-project-card {
+        margin: 0 0.5rem;
+    }
+
+    .home-project-title {
+        font-size: 1rem;
+    }
+
+    .home-project-description {
+        font-size: 0.85rem;
+    }
+
+    .home-contact-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .home-contact .btn-primary {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .home-contact-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .home-projects-cta .btn-outline {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .project-description {
+        font-size: 0.75rem !important;
     }
 }

@@ -9,56 +9,171 @@
     margin-bottom: 4rem;
 }
 
-/* Profile Section */
-.about-profile {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 3rem;
+/* Cover Photo */
+.about-cover-section {
+    position: relative;
+    margin-bottom: 0;
     background: var(--white);
-    padding: 3rem;
     border: 1px solid var(--border);
+    border-bottom: none;
+}
+
+.about-cover-photo {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: var(--gray-200);
+}
+
+.cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-profile-avatar {
+    position: absolute;
+    bottom: -85px;
+    left: 2rem;
+    width: 170px;
+    height: 170px;
+    /* border: 2px solid var(--white); */
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.about-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+}
+
+/* LinkedIn Style Profile Info */
+.about-profile-info-section {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 0 2rem 2rem;
     margin-bottom: 3rem;
+}
+
+.about-profile-name-row {
+    display: flex;
     align-items: center;
+    gap: 0.5rem;
+    min-height: 80px;
+    padding-left: 12rem;
+    /* margin-bottom: 0.5rem; */
+    /* padding-top: 0.5rem; */
+}
+
+.about-profile-name-row h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--black);
+    margin: 0;
+}
+
+.about-profile-title {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    font-style: italic;
+    padding-left: 12rem;
+    margin-top: -1.7rem;
+    margin-bottom: 1rem;
+}
+
+.verified-icon {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    margin-bottom: 0.4rem;
+    flex-shrink: 0;
+}
+
+.about-profile-info-left {
+    flex: 1;
+}
+
+.about-profile-info-left h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+}
+
+.about-profile-bio-short {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+    /* margin-top: 0.3rem; */
+    max-width: 1500px;
+}
+
+.about-profile-location {
+    color: #16a34a;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.about-profile-info-right {
+    flex-shrink: 0;
+}
+
+.about-school-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--background-alt);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.about-school-logo {
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Profile Image */
 .profile-image-container {
-    /* width: 200px; */
-    /* height: 170px; */
     position: relative;
     flex-shrink: 0;
 }
+
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid var(--black);
-    /* filter: grayscale(100%); */
     transition: all 0.5s ease;
 }
-
 
 .profile-image:hover {
     filter: grayscale(0%);
     transform: scale(1.05);
 }
 
-.profile-info h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-    font-weight: 900;
-}
-
 .profile-role {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--black);
     font-weight: 600;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    font-size: 1rem;
 }
 
 .profile-bio {
@@ -70,89 +185,72 @@
 /* Feature Cards */
 .feature-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-bottom: 3rem;
 }
 
 .feature-card {
     background: var(--white);
-    padding: 2.5rem;
-    text-align: center;
+    padding: 1.5rem;
+    text-align: left;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--black);
-    box-shadow: 0 8px 30px var(--shadow-hover);
-}
-
-.feature-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: var(--black);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--white);
+    gap: 1.2rem;
+}
+
+.feature-card-text {
+    flex: 1;
+    min-width: 0;
 }
 
 .feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--black);
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: nowrap;
 }
 
 .feature-card p {
+    font-size: 0.85rem;
     color: var(--text-light);
-    line-height: 1.7;
+    line-height: 1.6;
+    margin: 0;
 }
+
+.feature-card:hover {
+    border-color: var(--black);
+    box-shadow: 0 4px 12px var(--shadow);
+    transform: none;
+}
+
+.feature-icon {
+    font-size: 1.4rem;
+}
+
 .resume-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     background: var(--black);
     color: var(--white);
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1.2rem;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 600;
-    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    /* margin-top: 1rem;*/
     transition: all 0.3s ease;
 }
 
 .resume-btn:hover {
     background: var(--text);
     transform: translateY(-2px);
-}
-/* OJT Section */
-.ojt-section {
-    background: var(--white);
-    padding: 3rem;
-    border: 1px solid var(--border);
-    margin-bottom: 3rem;
-}
-
-.ojt-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    font-size: 1.5rem;
-}
-
-.ojt-section p {
-    color: var(--text-light);
-    line-height: 1.8;
-    font-size: 1.05rem;
 }
 
 /* Skills Section */
@@ -171,12 +269,11 @@
 }
 
 .skill-category h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
     color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-size: 1rem;
 }
 
 .skill-tags {
@@ -187,7 +284,7 @@
 
 .skill-tag {
     padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 600;
     transition: all 0.3s ease;
     border: 1px solid var(--border);
@@ -195,80 +292,287 @@
     color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
 }
 
+.skill-tag-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+.skill-tag-fa-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--black);
+}
+
+/* 
 .skill-tag:hover {
     transform: translateY(-2px);
     background: var(--black);
     color: var(--white);
     border-color: var(--black);
+} */
+
+.about-award-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    /* background: var(--background-alt); */
+    /* border: 1px solid var(--border); */
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.about-award-icon.briefcase {
+    background: #e0f2fe;
+    border-color: #bae6fd;
+    color: #0284c7;
+}
+
+.about-award-icon.trophy {
+    background: #fef9c3;
+    border-color: #fde047;
+    color: #ca8a04;
 }
 
 /* Education Section */
-.education-section {
+.about-section-card {
     background: var(--white);
-    padding: 3rem;
     border: 1px solid var(--border);
-}
-
-.education-card {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
     padding: 2rem;
-    background: var(--background-alt);
-    border: 1px solid var(--border);
-    margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-/* School logo styling */
-.school-logo-container {
+.about-section-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
 }
 
-.school-logo {
+.about-section-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.about-section-item:first-of-type {
+    padding-top: 0.5rem;
+}
+
+.about-section-logo {
+    width: 55px;
+    height: 55px;
     object-fit: contain;
     border-radius: 8px;
+    /* border: 1px solid var(--border); */
+    flex-shrink: 0;
 }
 
-/* Update feature icon container to handle images */
-.feature-card .feature-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-}
-
-.education-card .education-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
-}
-
-.education-info h3 {
-    font-size: 1.3rem;
-    color: var(--text);
-    margin-bottom: 0.5rem;
+.about-section-title {
+    font-size: 0.95rem;
     font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.2rem;
 }
 
-.education-school {
-    color: var(--black);
-    font-weight: 600;
+.about-section-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.1rem;
+}
+
+.about-section-year {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin: 0;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: calc(50% + 2rem);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item.right {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: calc(50% + 2rem);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    width: 14px;
+    height: 14px;
+    background: var(--black);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--black);
+}
+
+.timeline-content {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    max-width: 400px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    border-color: var(--black);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.timeline-year {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
     margin-bottom: 0.3rem;
 }
 
-.education-year {
+.timeline-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+}
+
+.timeline-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.timeline-cta {
+    text-align: center;
+    padding: 2rem 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+}
+
+.timeline-cta .btn-primary {
+    padding: 0.6rem 2rem;
+    font-size: 0.85rem;
+}
+
+.timeline-cta-text {
     color: var(--text-light);
     font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.home-contact {
+    padding: 3rem 0 0;
+    text-align: center;
+}
+
+.home-contact-box {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-contact .section-title {
+    color: var(--white);
+}
+
+.home-contact .section-title::after {
+    background: var(--white);
+}
+
+.home-contact-subtitle {
+    color: var(--gray-400);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.home-contact .btn-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--white);
+    padding: 0.6rem 2rem;
+    font-size: 0.85rem;
+}
+
+.home-contact .btn-primary:hover {
+    background: transparent;
+    color: var(--white);
+}
+
+.home-contact {
+    padding: 3rem 0 0;
+    /* background: var(--background-alt); */
+    text-align: center;
+}
+
+.home-contact-box {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-contact .section-title {
+    color: var(--white);
+}
+
+.home-contact .section-title::after {
+    background: var(--white);
+}
+
+.home-contact-subtitle {
+    color: var(--gray-400);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.home-contact .btn-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--white);
+}
+
+.home-contact .btn-primary:hover {
+    background: transparent;
+    color: var(--white);
 }
 
 /* Mobile Responsive */
@@ -277,41 +581,80 @@
         padding: 3rem 0;
     }
 
-    .about-header {
-        margin-bottom: 2.5rem;
+    .about-cover-photo {
+        height: 180px;
+    }
+    .about-profile-avatar {
+        position: absolute;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -50px;
+        width: 110px;
+        height: 110px;
     }
 
-    .about-profile {
-        grid-template-columns: 1fr;
+    .about-profile-name-row {
+        padding-left: 0;
+        justify-content: center;
+        align-items: center;
+        min-height: auto;
+        padding-top: 1rem;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+    }
+
+    .about-profile-name-row h2 {
+        font-size: 1.3rem;
         text-align: center;
-        padding: 2rem;
-        gap: 2rem;
+        line-height: 1.2;
     }
 
-    .profile-image-container {
-        margin: 0 auto;
+    .about-profile-title {
+        padding-left: 0;
+        text-align: center;
+        margin-top: -0.5rem;
     }
 
-    .profile-info h2 {
-        font-size: 1.75rem;
+    .verified-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        align-self: center;
     }
 
-    .profile-role {
+    .about-profile-info-section {
+        flex-direction: column;
+        padding-top: 2.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-profile-bio-short {
+        margin-top: 0;
         font-size: 0.9rem;
+    }
+
+    .about-profile-location {
+        justify-content: center;
     }
 
     .feature-cards {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
     .school-logo {
         width: 80px;
         height: 80px;
+    }
+
+    .about-section-card .section-title,
+    .skills-section .section-title {
+        font-size: 1.3rem;
     }
 }
 
@@ -320,12 +663,12 @@
         padding: 2rem 0;
     }
 
-    .about-profile {
-        padding: 1.5rem;
+    .about-profile-info-left h2 {
+        font-size: 1.4rem;
     }
 
-    .profile-info h2 {
-        font-size: 1.5rem;
+    .about-profile-bio-short {
+        font-size: 0.9rem;
     }
 
     .profile-bio {
@@ -342,18 +685,9 @@
         font-size: 1.5rem;
     }
 
-    .ojt-section,
     .skills-section,
     .education-section {
         padding: 2rem;
-    }
-
-    .ojt-section h2 {
-        font-size: 1.25rem;
-    }
-
-    .ojt-section p {
-        font-size: 0.95rem;
     }
 
     .education-card {
@@ -365,21 +699,80 @@
     .education-info h3 {
         font-size: 1.1rem;
     }
+
     .resume-btn {
         padding: 0.65rem 1.2rem;
         font-size: 0.9rem;
     }
-    
+
+    .timeline::before {
+        left: 1rem;
+    }
+
+    .timeline-item,
+    .timeline-item.right {
+        justify-content: flex-start;
+        padding-left: 3rem;
+        padding-right: 0;
+    }
+
+    .timeline-dot {
+        left: 1rem;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+    }
+
+    .home-contact-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .home-contact .section-title {
+        font-size: 1.5rem;
+    }
+
+    .home-contact-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .home-contact .btn-primary {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .about-section-card .section-title,
+    .skills-section .section-title {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
-    .profile-image-container {
-        width: 150px;
-        height: 150px;
+    .about-cover-photo {
+        height: 140px;
     }
 
-    .profile-info h2 {
-        font-size: 1.3rem;
+    .about-profile-avatar {
+        position: absolute;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -45px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .about-profile-name-row h2 {
+        font-size: 1.2rem;
+    }
+
+    .about-profile-title {
+        font-size: 0.85rem;
+        margin-top: -0.1rem;
+    }
+
+    .verified-icon {
+        width: 20px;
+        height: 20px;
     }
 
     .feature-card {
@@ -395,15 +788,28 @@
         font-size: 0.7rem;
     }
 
-    .ojt-section,
-    .skills-section,
-    .education-section {
-        padding: 1.5rem;
-    }
     .resume-btn {
         padding: 0.6rem 1rem;
         font-size: 0.85rem;
         width: 100%;
         justify-content: center;
+    }
+
+    .home-contact-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .home-contact .section-title {
+        font-size: 1.3rem;
+    }
+
+    .home-contact .btn-primary {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .about-section-card .section-title,
+    .skills-section .section-title {
+        font-size: 1.1rem;
     }
 }

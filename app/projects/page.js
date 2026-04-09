@@ -5,6 +5,8 @@ import ProjectCard from '@/components/ProjectCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Chatbot from '@/components/Chatbot'
+import Link from 'next/link'
+import '../../styles/home.css'
 import '../../styles/projects.css'
 
 // export const metadata = {
@@ -17,7 +19,7 @@ export default function Projects() {
     {
       title: 'Pet Grooming',
       slug: 'pet-grooming',
-      description: 'A system that allows customers to book grooming appointments, manage pet profiles, and track services, while staffs efficiently handle bookings and service operations.',
+      description: 'A pet grooming management system that allows customers to book grooming appointments, manage pet profiles, and track services, while staffs efficiently handle bookings and service operations.',
       technologies: ['Vue', 'VITE', 'Node.js', 'Express.js', 'MySQL', 'CSS'],
       githubLink: 'https://github.com/yourusername/pet-grooming',
       liveLink: '',
@@ -25,7 +27,7 @@ export default function Projects() {
       image: '/images/projects/pet-grooming.png',
     },
     {
-      title: 'CPC Voting',
+      title: 'CPC SSG Voting',
       slug: 'cpc-voting',
       description: 'A secure web-based voting system for Cordova Public College that allows students to vote online with one-vote-per-student enforcement and real-time result generation.',
       technologies: ['Vue', 'Node.js', 'Express.js', 'MySQL', 'CSS'],
@@ -37,7 +39,7 @@ export default function Projects() {
     {
       title: 'Task Tracker',
       slug: 'task-tracker',
-      description: 'A Task Tracker Management System designed to help users efficiently organize, monitor, and manage their daily tasks and projects.',
+      description: 'A task tracker system designed to help users efficiently organize, monitor, and manage their daily tasks and projects.',
       technologies: ['Next.js', 'Laravel', 'MongoDB', 'SASS'],
       githubLink: 'https://github.com/yourusername/task-tracker',
       liveLink: '',
@@ -87,7 +89,7 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-{/* 
+        {/* 
         <motion.div
           className="projects-cta"
           initial={{ opacity: 0, y: 30 }}
@@ -107,8 +109,24 @@ export default function Projects() {
             Visit My GitHub
           </a>
         </motion.div> */}
-
+        {/* ───── CONTACT ───── */}
+        <motion.div
+          className="home-contact"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="home-contact-box">
+            <h2 className="section-title">Get In Touch</h2>
+            <p className="home-contact-subtitle">
+              Have a project in mind or just want to say hi? I'd love to hear from you!
+            </p>
+            <Link href="/contact" className="btn btn-primary">Contact Me</Link>
+          </div>
+        </motion.div>
       </div>
+
       <Chatbot />
     </div>
   )
