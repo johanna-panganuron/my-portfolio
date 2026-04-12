@@ -3,18 +3,63 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { projectDetails } from './page'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faFigma, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { faArrowLeft, faCalendar, faUser, faExternalLinkAlt, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faCalendar, faUser, faExternalLinkAlt, faChevronLeft, faChevronRight, faLayerGroup, faListCheck, faUsers } from '@fortawesome/free-solid-svg-icons'
+import ContactSection from '@/components/ContactSection'
+import Chatbot from '@/components/Chatbot'
 import '../../../styles/project-detail.css'
+
+const techIcons = {
+  'Vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'Vue CLI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'Vuex': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'VITE': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg',
+  'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'Express.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+  'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+  'Laravel': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+  'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+  'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'HTML': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+  'CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+  'SASS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg',
+  'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+  'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+  'JWT': '/images/jwt.webp',
+  'Postman': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg',
+  'REST API': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
+  'OAuth': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg',
+  'PDFKit': '/images/pdf-js.png',
+  'Nodemailer': '/images/node-mailer.png',
+  'Socket.io': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg',
+  'Excel JS': 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftexcel.svg',
+  'Gemini Chatbot': 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg',
+  'SweetAlert2': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'Axios': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-plain.svg',
+  'ESLint': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg',
+  'Chart.js': '/images/chart-js.png',
+  'Toastify': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+}
 
 export default function ProjectDetailClient({ project }) {
   const router = useRouter()
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [otherProjects, setOtherProjects] = useState([])
 
+  useEffect(() => {
+    const others = Object.entries(projectDetails)
+      .filter(([slug]) => slug !== project.slug)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3)
+    setOtherProjects(others)
+  }, [project.slug])
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % project.screenshots.length)
   }
@@ -108,7 +153,7 @@ export default function ProjectDetailClient({ project }) {
             ))}
           </div>
         </div>
-        
+
         {/* Project Info Grid */}
         <motion.div
           className="project-info-grid"
@@ -123,14 +168,16 @@ export default function ProjectDetailClient({ project }) {
           </div>
 
           <div className="project-details">
+            {/* Full width - Tech Stack */}
             <motion.div
               className="details-card"
+              style={{ gridColumn: '1 / -1' }}
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3>Technologies Used</h3>
+              <h3><FontAwesomeIcon icon={faLayerGroup} style={{ marginRight: '0.5rem', color: '#10b981' }} />Tech Stack</h3>
               <div className="technologies-list">
                 {project.technologies.map((tech, index) => (
                   <motion.span
@@ -141,12 +188,32 @@ export default function ProjectDetailClient({ project }) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
+                    {techIcons[tech] && (
+                      <img src={techIcons[tech]} alt={tech} style={{ width: '16px', height: '16px', objectFit: 'contain' }} />
+                    )}
                     {tech}
                   </motion.span>
                 ))}
               </div>
             </motion.div>
 
+            {/* Left - Users */}
+            <motion.div
+              className="details-card"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <h3><FontAwesomeIcon icon={faUsers} style={{ marginRight: '0.5rem', color: '#10b981' }} />Users ({project.actors.length})</h3>
+              <ul className="features-list">
+                {project.actors.map((actor, index) => (
+                  <li key={index}>{actor}</li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Right - Key Features */}
             <motion.div
               className="details-card"
               initial={{ opacity: 0, x: 20 }}
@@ -154,7 +221,7 @@ export default function ProjectDetailClient({ project }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3>Key Features</h3>
+              <h3><FontAwesomeIcon icon={faListCheck} style={{ marginRight: '0.5rem', color: '#10b981' }} />Key Features</h3>
               <ul className="features-list">
                 {project.features.map((feature, index) => (
                   <motion.li
@@ -183,55 +250,24 @@ export default function ProjectDetailClient({ project }) {
           <h2>Project Links</h2>
           <div className="links-container">
             {project.githubLink && (
-              <motion.a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-btn"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 <FontAwesomeIcon icon={faGithub} /> View Source Code
-              </motion.a>
+              </a>
             )}
-
             {project.liveLink && (
-              <motion.a
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-btn"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 <FontAwesomeIcon icon={faExternalLinkAlt} /> Live Demo
-              </motion.a>
+              </a>
             )}
-
             {project.figmaLink && (
-              <motion.a
-                href={project.figmaLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-btn"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <a href={project.figmaLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 <FontAwesomeIcon icon={faFigma} /> Design Files
-              </motion.a>
+              </a>
             )}
-
             {project.youtubeLink && (
-              <motion.a
-                href={project.youtubeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link-btn"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <a href={project.youtubeLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 <FontAwesomeIcon icon={faYoutube} /> Capstone Video
-              </motion.a>
+              </a>
             )}
           </div>
         </motion.div>
@@ -245,23 +281,29 @@ export default function ProjectDetailClient({ project }) {
         >
           <h2>Other Projects</h2>
           <div className="other-projects-grid">
-            {Object.entries(projectDetails)
-              .filter(([slug]) => slug !== project.slug)
-              .map(([slug, proj]) => (
-                <Link key={slug} href={`/projects/${slug}`} className="other-project-card">
-                  <div className="other-project-img-wrap">
-                    <img src={proj.mainImage} alt={proj.title} className="other-project-img" />
+            {otherProjects.map(([slug, proj]) => (
+              <Link key={slug} href={`/projects/${slug}`} className="other-project-card">
+                <div className="other-project-img-wrap">
+                  <img src={proj.mainImage} alt={proj.title} className="other-project-img" />
+                </div>
+                <div className="other-project-info">
+                  <h3>{proj.title}</h3>
+                  <div className="other-project-tags">
+                    {proj.technologies.slice(0, 3).map((tech, i) => (
+                      <span key={i} className="tech-badge">
+                        {techIcons[tech] && (
+                          <img src={techIcons[tech]} alt={tech} style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                        )}
+                        {tech}
+                      </span>
+                    ))}
+                    {proj.technologies.length > 3 && (
+                      <span className="tech-badge">+{proj.technologies.length - 3} more</span>
+                    )}
                   </div>
-                  <div className="other-project-info">
-                    <h3>{proj.title}</h3>
-                    <div className="other-project-tags">
-                      {proj.technologies.map((tech, i) => (
-                        <span key={i} className="tech-badge">{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                </div>
+              </Link>
+            ))}
           </div>
         </motion.div>
         {/* Navigation */}
@@ -277,6 +319,8 @@ export default function ProjectDetailClient({ project }) {
           </Link>
         </motion.div>
       </div>
+      <ContactSection />
+      <Chatbot />
     </div>
   )
 }

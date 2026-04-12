@@ -6,17 +6,18 @@ import ProjectDetailClient from './ProjectDetailClient'
 export const projectDetails = {
   'pet-grooming': {
     slug: 'pet-grooming',
-    title: 'Pet Grooming',
-    description: 'The Pet Grooming Management System is a web-based application developed for Mimi\'s Pet Grooming Services to simplify daily business operations. It allows customers to register, manage pet profiles, and book grooming appointments online, while staff can manage their schedules and grooming tasks, and the owner (admin) can oversee services, staff management, inventory, and billing. The system improves efficiency, reduces manual work, and enhances customer experience through organized and automated workflows.',//     fullDescription: `The Pet Grooming Management System is designed to streamline operations for pet grooming businesses. Key features include:
+    title: 'Mimi\'s Pet Grooming',
+    description: 'The Pet Grooming Management System is a web-based application developed for Mimi\'s Pet Grooming Services to simplify daily business operations. It allows customers (pet owners) to register, manage pet profiles, and book grooming appointments online, while staff can manage their schedules, walk-in and grooming tasks, and the owner (admin) can oversee services, staff management, customers, and billing. The system improves efficiency, reduces manual work, and enhances customer experience through organized and automated workflows.',
+    // fullDescription: `The Pet Grooming Management System is designed to streamline operations for pet grooming businesses. Key features include:
 
-// • Customer registration and pet profiles
-// • Online appointment scheduling
-// • Service catalog with pricing
-// • Staff management and scheduling
-// • Billing and payment processing
-// • Customer notifications (Email)`,
-    technologies: ['Vue', 'VITE', 'CSS', 'Node.js', 'Express.js', 'MySQL', 'JWT', 'OAuth'],
-    youtubeLink: 'https://youtu.be/zQRTAlWEon4',
+    // • Customer registration and pet profiles
+    // • Online appointment scheduling
+    // • Service catalog with pricing
+    // • Staff management and scheduling
+    // • Billing and payment processing
+    // • Customer notifications (Email)`,
+    actors: ['Admin (Owner)', 'Staff (Receptionist)', 'Customer (Pet Owner)'],
+    technologies: ['Vue', 'VITE', 'Vuex', 'Node.js', 'Express.js', 'REST API', 'MySQL', 'Axios', 'Socket.io', 'JWT', 'OAuth', 'Nodemailer', 'Chart.js', 'PDFKit', 'Excel JS', 'Toastify', 'SweetAlert2', 'Gemini Chatbot', 'Postman', 'CSS'],
     // githubLink: 'https://github.com/yourusername/pet-grooming',
     liveLink: '',
     figmaLink: 'https://www.figma.com/design/o3gT0RZrWTv3BBm5KDxwRn/Mimi-s-Pet-Grooming?node-id=0-1&p=f&t=rh5g4zjDsO6OlZW4-0',
@@ -29,7 +30,7 @@ export const projectDetails = {
       '/images/projects/pet-grooming-services-review.png',
       '/images/projects/pet-grooming-gallery.png',
       '/images/projects/pet-grooming-reviews.png',
-      '/images/projects/pet-grooming-contact.png',      
+      '/images/projects/pet-grooming-contact.png',
       '/images/projects/pet-grooming-signup.png',
       '/images/projects/pet-grooming-contactno.png',
       '/images/projects/pet-grooming-forgotpass.png',
@@ -51,6 +52,7 @@ export const projectDetails = {
     ],
     features: [
       'Appointment Scheduling',
+      'Walk-in Management',
       'Pet Profile Management',
       'Staff Management',
       'Service Catalog',
@@ -58,13 +60,14 @@ export const projectDetails = {
       'Customer Portal',
       'Mobile Responsive'
     ],
-    role: 'Full-Stack Developer & UI Designer',
+    role: 'Full-Stack Developer',
     duration: '4 months'
   },
+
   'cpc-voting': {
     slug: 'cpc-voting',
     title: 'CPC SSG Voting',
-    description: 'The CPC SSG Voting System is a secure web-based voting platform developed for Cordova Public College to modernize the school election process. It enables students to vote online through a verified account while administrators manage candidates, elections, and results. The system ensures transparency and accuracy through role-based access, real-time vote counting, and secure data handling.',
+    description: 'The CPC SSG Voting System is a secure web-based voting platform developed for Cordova Public College to modernize the school election process. It enables students to vote online through a verified account while administrators (SAO) manage candidates, elections, and results. The system ensures transparency and accuracy through role-based access, real-time vote counting, and secure data handling.',
     fullDescription: `The CPC SSG Voting System is a secure digital voting platform designed for educational institutions. Features include:
 
 • Role-based authentication (Admin, Voter)
@@ -74,7 +77,8 @@ export const projectDetails = {
 • Election result visualization
 • Voter verification system
 • Audit trail for transparency`,
-    technologies: ['Vue', 'Node.js', 'Express.js', 'MySQL', 'CSS'],
+    actors: ['Admin (Student Affairs Office)', 'Student Voter'],
+    technologies: ['Vue CLI', 'Node.js', 'Express.js', 'REST API', 'MySQL', 'Axios', 'JWT', 'Chart.js', 'Tailwind CSS', 'SweetAlert2', 'ESLint', 'Postman', 'CSS'],
     // githubLink: 'https://github.com/yourusername/cpc-voting',
     liveLink: '',
     mainImage: '/images/projects/voting-system.png',
@@ -101,10 +105,11 @@ export const projectDetails = {
     role: 'Full-Stack Developer',
     duration: '1 month'
   },
+
   'task-tracker': {
     slug: 'task-tracker',
     title: 'Task Tracker',
-    description: 'The Task Tracker Management System is a productivity-focused web application designed to help users organize tasks and manage projects efficiently. It allows users to create, update, track, and monitor tasks with deadlines and progress indicators. With authentication, filtering, and responsive design, the system helps users stay focused, organized, and on schedule across different devices.',
+    description: 'The Task Tracker Management System is a productivity-focused web application designed to help users organize tasks and manage projects efficiently. It allows users to create, update, track, and monitor tasks with progress indicators. With authentication, filtering, and responsive design, the system helps users stay focused, organized, and on schedule across different devices.',
     fullDescription: `Task Tracker is a comprehensive web application built with modern technologies to streamline task management. The system features:
 
 • User authentication and authorization
@@ -114,6 +119,7 @@ export const projectDetails = {
 • Progress tracking with visual indicators
 • Search and filter functionality
 • Responsive design for mobile and desktop`,
+    actors: ['Registered User'],
     technologies: ['Next.js', 'Laravel', 'MongoDB', 'SASS', 'JWT', 'REST API'],
     githubLink: 'https://github.com/johanna-panganuron/task-manager',
     liveLink: '',
@@ -137,10 +143,11 @@ export const projectDetails = {
     role: 'Full-Stack Developer',
     duration: '1 month'
   },
+
   'cpc-library': {
     slug: 'cpc-library',
     title: 'CPC Library',
-    description: 'The CPC Library Management System is a web-based application developed for Cordova Public College to automate library operations. It manages book inventory, member records, borrowing and returning transactions, due dates, and fines. The system replaces manual record-keeping with a faster, more accurate, and organized digital solution for both librarians and students.',
+    description: 'The CPC Library Management System is a web-based application developed for Cordova Public College to automate library operations. It manages book inventory, student records, borrowing and returning transactions, due dates, and fines. The system replaces manual record-keeping with a faster, more accurate, and organized digital solution for both librarians and students.',
     fullDescription: `The CPC Library Management System automates traditional library operations. Key features include:
 
 • Book catalog and inventory management
@@ -150,7 +157,8 @@ export const projectDetails = {
 • Fine calculation and management
 • Book reservation system
 • Reporting and analytics`,
-    technologies: ['PHP', 'JavaScript', 'MySQL', 'CSS'],
+    actors: ['Librarian (Admin)', 'Student'],
+    technologies: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS'],
     githubLink: 'https://github.com/johanna-panganuron/cpc-library-management-system',
     liveLink: '',
     figmaLink: 'https://www.figma.com/design/7Z5Izy2cPqnpd4BZlVfc3w/Library-Management-System?m=auto&fuid=1412796318703401243',
@@ -170,8 +178,75 @@ export const projectDetails = {
       'Due Date Tracking',
       'Fine Calculation'
     ],
-    role: 'Full-Stack Developer & UI Designer',
+    role: 'Full-Stack Developer',
     duration: '2 weeks'
+  },
+
+  // UI/UX Projects
+  'nailed-by-via': {
+    slug: 'nailed-by-via',
+    title: 'Nailed by Via - Nail Extension',
+    description: 'Nailed by Via is a UI/UX design project for a nail extension service booking platform. The design focuses on a clean, feminine aesthetic that reflects the elegance and artistry of nail care. It features a service browsing page, appointment scheduling flow, gallery showcase, and a smooth booking experience tailored for beauty service clients.',
+    technologies: ['Figma'],
+    figmaLink: 'https://www.figma.com/file/your-link-here',
+    mainImage: '/images/projects/nail-extension.png',
+    screenshots: [
+      '/images/projects/nail-extension.png',
+    ],
+    features: [
+      'Service Browsing & Catalog',
+      'Appointment Scheduling',
+      'Gallery Showcase',
+      'Mobile Responsive Design',
+      'Clean Feminine Aesthetic',
+    ],
+    actors: ['Client / Customer'],
+    role: 'UI/UX Designer',
+    duration: 'April 2025',
+  },
+  'mimis-pet-grooming-ui': {
+    slug: 'mimis-pet-grooming-ui',
+    title: "Mimi's Pet Grooming - UI Design",
+    description: "Mimi's Pet Grooming UI/UX design is the design prototype created before the full-stack development of the system. It covers the complete user interface for customers, staff, and admin — including appointment booking, pet profile management, service catalog, and grooming task monitoring. The design prioritizes ease of use and a friendly, approachable aesthetic suited for pet owners.",
+    technologies: ['Figma'],
+    figmaLink: 'https://www.figma.com/file/your-link-here',
+    mainImage: '/images/projects/ui-pet-grooming.png',
+    screenshots: [
+      '/images/projects/ui-pet-grooming.png',
+    ],
+    features: [
+      'Appointment Booking Flow',
+      'Pet Profile Management',
+      'Staff Dashboard Design',
+      'Admin Panel Layout',
+      'Service Catalog UI',
+      'Mobile Responsive Design',
+    ],
+    actors: ['Admin', 'Staff', 'Customer'],
+    role: 'UI/UX Designer',
+    duration: 'February - March 2025',
+  },
+  'cpc-library-ui': {
+    slug: 'cpc-library-ui',
+    title: 'CPC Library - UI Design',
+    description: 'The CPC Library UI/UX design is the design prototype for the Cordova Public College Library Management System. It covers the complete interface for librarians and students — including book catalog browsing, borrowing and returning transactions, member management, and an organized dashboard for library staff. The design aims for a clean, academic aesthetic that is easy to navigate.',
+    technologies: ['Figma'],
+    figmaLink: 'https://www.figma.com/file/your-link-here',
+    mainImage: '/images/projects/ui-cpc-library.png',
+    screenshots: [
+      '/images/projects/ui-cpc-library.png',
+    ],
+    features: [
+      'Book Catalog Browsing',
+      'Borrowing & Returning Transactions',
+      'Member Management',
+      'Librarian Dashboard',
+      'Fine Calculation UI',
+      'Mobile Responsive Design',
+    ],
+    actors: ['Librarian', 'Student'],
+    role: 'UI/UX Designer',
+    duration: 'October 2024',
   }
 }
 

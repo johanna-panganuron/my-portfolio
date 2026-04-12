@@ -29,12 +29,12 @@ export default function Footer() {
                 {/* Col 1 - Bio */}
                 <div className="footer-brand">
                     <Image
-                        src="/images/jp2.png"
+                        src="/images/jp-logo-white-.png"
                         alt="Johanna B. Panganuron Logo"
                         width={60}
                         height={60}
                     />
-                    <p>Junior Full-Stack Web Developer passionate about building functional and user-friendly web applications.</p>
+                    <p>I'm Junior Full-Stack Web Developer passionate about building functional and user-friendly web applications.</p>
                     <div className="footer-socials">
                         <a href="https://facebook.com/juwanaxz" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
                             <FontAwesomeIcon icon={faFacebook} />
@@ -51,27 +51,27 @@ export default function Footer() {
                 {/* Col 2 - Nav + Services */}
                 <div className="footer-cols-mobile">
 
-                <div className="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/about">About</Link></li>
-                        <li><Link href="/projects">Projects</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
-                    </ul>
+                    <div className="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><Link href="/">Home</Link></li>
+                            <li><Link href="/about">About</Link></li>
+                            <li><Link href="/projects">Projects</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Col 3 - Contact */}
+                    <div className="footer-col">
+                        <h4>Get In Touch</h4>
+                        <div className="footer-contact-item">
+                            <a href="mailto:johannapanganuron@gmail.com">johannapanganuron@gmail.com</a>
+                            <span>0949 1280 100</span>
+                            <span>Cordova, Cebu, Philippines</span>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Col 3 - Contact */}
-                <div className="footer-col">
-                    <h4>Get In Touch</h4>
-                    <div className="footer-contact-item">
-                        <a href="mailto:johannapanganuron@gmail.com">johannapanganuron@gmail.com</a>
-                        <span>0949 1280 100</span>
-                        <span>Cordova, Cebu, Philippines</span>
-                    </div>
-                    </div>
-                </div>
-               
             </div>
 
             {/* Bottom Bar */}

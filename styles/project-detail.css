@@ -1,7 +1,7 @@
 .project-detail-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 3rem 0;
+    padding: 3rem 0 0rem;
 }
 
 .back-link {
@@ -82,7 +82,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    flex-direction: unset;
+    grid-template-rows: auto auto;
 }
 
 .details-card {
@@ -112,6 +112,21 @@
     font-size: 0.9rem;
     font-weight: 600;
     border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+[data-theme="dark"] .tech-badge img[src*="nextjs"],
+[data-theme="dark"] .tech-badge img[src*="express"],
+[data-theme="dark"] .tech-badge img[src*="json"],
+[data-theme="dark"] .tech-badge img[src*="socketio"] {
+    filter: invert(1);
+}
+
+[data-theme="dark"] .tech-badge img[src*="microsoftexcel"],
+[data-theme="light"] .tech-badge img[src*="microsoftexcel"] {
+    filter: invert(0.5) sepia(1) saturate(3) hue-rotate(80deg);
 }
 
 .features-list {
@@ -187,22 +202,11 @@
     flex-wrap: wrap;
 }
 
-.project-link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--black);
-    color: var(--white);
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.project-link-btn:hover {
-    background: var(--text);
-    transform: translateY(-2px);
+.btn-primary svg {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.4rem;
+    vertical-align: middle;
 }
 
 /* Navigation */
@@ -213,14 +217,22 @@
 }
 
 .nav-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 2rem;
+    border-radius: 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    min-width: 160px;
+    border: 1px solid var(--border);
     background: var(--white);
     color: var(--text);
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
@@ -391,6 +403,7 @@
 .other-project-tags .tech-badge {
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
+    border-radius: 4px;
 }
 
 /* Responsive */

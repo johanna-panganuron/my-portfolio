@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Reset and Base Styles */
@@ -9,7 +10,7 @@
 
 :root {
   /* Monochrome Color System */
-  --black: #000000;
+  --black: #111111;
   --gray-900: #111827;
   --gray-800: #1f2937;
   --gray-700: #374151;
@@ -27,10 +28,50 @@
   --text: var(--gray-900);
   --text-light: var(--gray-600);
   --background: var(--white);
-  --background-alt: var(--gray-50);
+  --background-alt: #ffffff;
   --border: var(--gray-200);
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(0, 0, 0, 0.2);
+
+  --hero-bg: #ffffff;
+  --hero-text: #111111;
+
+  --footer-bg: #111111;
+  --footer-text: #ffffff;
+  --footer-text-muted: #9ca3af;
+  --footer-border: #333333;
+
+  .profile-light {
+    display: block;
+  }
+
+  .profile-dark {
+    display: none;
+  }
+}
+
+[data-theme="dark"] {
+  --background: #111111;
+  --background-alt: #111111;
+  --white: #111111;
+  --black: #ffffff;
+  --text: #ffffff;
+  --text-light: #d1d5db;
+  --border: #333333;
+  --hero-bg: #111111;
+  --hero-text: #ffffff;
+  --footer-bg: #111111;
+  --footer-text: #ffffff;
+  --footer-text-muted: #9ca3af;
+  --footer-border: #333333;
+
+  .profile-light {
+    display: none;
+  }
+
+  .profile-dark {
+    display: block;
+  }
 }
 
 body {
@@ -40,7 +81,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
 }
 
 html {
@@ -97,25 +138,33 @@ a {
   transition: all 0.3s ease;
 }
 
-/* Buttons */
+/* Buttons - Global Styles */
 .btn {
-  display: inline-block;
-  padding: 1rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 2rem;
   border-radius: 0;
   font-weight: 600;
-  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: none;
+  border: 2px solid transparent;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  min-width: 160px;
 }
 
 .btn-primary {
   background: var(--black);
   color: var(--white);
+  border: 2px solid var(--black);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--black);
   border: 2px solid var(--black);
 }
 
@@ -126,11 +175,6 @@ a {
   box-shadow: 0 4px 12px var(--shadow-hover);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--black);
-  border: 1px solid var(--black);
-}
 
 .btn-outline:hover {
   background: var(--black);

@@ -1,7 +1,7 @@
 .about-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 5rem 0;
+    padding: 5rem 0 2rem;
 }
 
 .about-header {
@@ -231,6 +231,12 @@
 
 .feature-icon {
     font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .resume-btn {
@@ -332,15 +338,13 @@
 }
 
 .about-award-icon.briefcase {
-    background: #e0f2fe;
-    border-color: #bae6fd;
-    color: #0284c7;
+    /* background: #e0f2fe; */
+    color: #00008B;
 }
 
 .about-award-icon.trophy {
-    background: #fef9c3;
-    border-color: #fde047;
-    color: #ca8a04;
+    /* background: #fef9c3; */
+    color: #00008B;
 }
 
 /* Education Section */
@@ -372,11 +376,19 @@
     width: 55px;
     height: 55px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 50px;
     /* border: 1px solid var(--border); */
     flex-shrink: 0;
 }
 
+.about-section-logo1 {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    /* border-radius: 50px; */
+    /* border: 1px solid var(--border); */
+    flex-shrink: 0;
+}
 .about-section-title {
     font-size: 0.95rem;
     font-weight: 700;
@@ -497,84 +509,6 @@
     margin-bottom: 1rem;
 }
 
-/* Contact Section */
-.home-contact {
-    padding: 3rem 0 0;
-    text-align: center;
-}
-
-.home-contact-box {
-    background: var(--black);
-    padding: 2.5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.home-contact .section-title {
-    color: var(--white);
-}
-
-.home-contact .section-title::after {
-    background: var(--white);
-}
-
-.home-contact-subtitle {
-    color: var(--gray-400);
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-.home-contact .btn-primary {
-    background: var(--white);
-    color: var(--black);
-    border: 2px solid var(--white);
-    padding: 0.6rem 2rem;
-    font-size: 0.85rem;
-}
-
-.home-contact .btn-primary:hover {
-    background: transparent;
-    color: var(--white);
-}
-
-.home-contact {
-    padding: 3rem 0 0;
-    /* background: var(--background-alt); */
-    text-align: center;
-}
-
-.home-contact-box {
-    background: var(--black);
-    padding: 2.5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.home-contact .section-title {
-    color: var(--white);
-}
-
-.home-contact .section-title::after {
-    background: var(--white);
-}
-
-.home-contact-subtitle {
-    color: var(--gray-400);
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-.home-contact .btn-primary {
-    background: var(--white);
-    color: var(--black);
-    border: 2px solid var(--white);
-}
-
-.home-contact .btn-primary:hover {
-    background: transparent;
-    color: var(--white);
-}
-
 /* Mobile Responsive */
 @media (max-width: 968px) {
     .about-page {
@@ -584,6 +518,7 @@
     .about-cover-photo {
         height: 180px;
     }
+
     .about-profile-avatar {
         position: absolute;
         left: 50% !important;
@@ -651,7 +586,9 @@
         width: 80px;
         height: 80px;
     }
-
+    .section-title{
+        font-size: 1.5rem;
+    }
     .about-section-card .section-title,
     .skills-section .section-title {
         font-size: 1.3rem;
@@ -659,6 +596,15 @@
 }
 
 @media (max-width: 768px) {
+    .about-cover-section,
+    .about-profile-info-section,
+    .about-section-card,
+    .skills-section,
+    .feature-cards,
+    .timeline-cta {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
     .about-page {
         padding: 2rem 0;
     }
@@ -724,23 +670,6 @@
         max-width: 100%;
     }
 
-    .home-contact-box {
-        padding: 2rem 1.5rem;
-    }
-
-    .home-contact .section-title {
-        font-size: 1.5rem;
-    }
-
-    .home-contact-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .home-contact .btn-primary {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
     .about-section-card .section-title,
     .skills-section .section-title {
         font-size: 1.2rem;
@@ -748,6 +677,15 @@
 }
 
 @media (max-width: 480px) {
+    .about-cover-section,
+    .about-profile-info-section,
+    .about-section-card,
+    .skills-section,
+    .feature-cards,
+    .timeline-cta {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
     .about-cover-photo {
         height: 140px;
     }
@@ -793,19 +731,6 @@
         font-size: 0.85rem;
         width: 100%;
         justify-content: center;
-    }
-
-    .home-contact-box {
-        padding: 1.5rem 1rem;
-    }
-
-    .home-contact .section-title {
-        font-size: 1.3rem;
-    }
-
-    .home-contact .btn-primary {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
     }
 
     .about-section-card .section-title,

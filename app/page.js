@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGraduationCap, faLaptopCode, faRocket, faCode, faDatabase, faUsers, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import ProjectCard from '@/components/ProjectCard'
 import Chatbot from '@/components/Chatbot'
+import ContactSection from '@/components/ContactSection'
 import '../styles/projects.css'
 import '../styles/home.css'
 
@@ -65,13 +66,15 @@ export default function Home() {
   const CurrentIcon = roles[currentRole].icon
 
   const techStack = [
-    { name: 'HTML', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { name: 'CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-    { name: 'Javascript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'JavaScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'TypeScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
     { name: 'Vue', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-    { name: 'Vite', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' },
     { name: 'React', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Next.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+    { name: 'Vite', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' },
+    { name: 'CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'SASS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
+    { name: 'Tailwind', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
     { name: 'Node.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
     { name: 'Express.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
     { name: 'PHP', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
@@ -83,11 +86,12 @@ export default function Home() {
     { name: 'Git', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'GitHub', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
     { name: 'VS Code', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+    { name: 'Vercel', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg' },
   ]
 
   const featuredProjects = [
     {
-      title: 'Pet Grooming',
+      title: 'Mimi\'s Pet Grooming',
       slug: 'pet-grooming',
       description: 'A pet grooming management system that allows customers to book grooming appointments, manage pet profiles, and track services, while staffs efficiently handle bookings and service operations.',
       technologies: ['Vue', 'VITE', 'Node.js', 'Express.js', 'MySQL', 'CSS'],
@@ -122,7 +126,8 @@ export default function Home() {
             <div className="hero-content">
               <div className="hero-image-mobile">
                 <div className="profile-image-wrapper">
-                  <img src="/images/profile.png" alt="Johanna Panganuron" className="profile-image" />
+                  <img src="/images/profile.png" alt="Johanna Panganuron" className="profile-image profile-light" />
+                  <img src="/images/profile-dark.png" alt="Johanna Panganuron" className="profile-image profile-dark" />
                 </div>
               </div>
               <h1>Hi, I'm Johanna <span className="wave">👋</span></h1>
@@ -141,7 +146,8 @@ export default function Home() {
             </div>
             <div className="hero-image hero-image-desktop">
               <div className="profile-image-wrapper">
-                <img src="/images/profile.png" alt="Johanna Panganuron" className="profile-image" />
+                <img src="/images/profile.png" alt="Johanna Panganuron" className="profile-image profile-light" />
+                <img src="/images/profile-dark.png" alt="Johanna Panganuron" className="profile-image profile-dark" />
               </div>
             </div>
           </div>
@@ -186,14 +192,12 @@ export default function Home() {
       {/* ───── TECH STACK ───── */}
       <section className="tech-stack">
         <div className="container">
-          <h2 className="section-title scroll-animate">Technologies & Tools</h2>
-          <div className="tech-grid">
+          <h2 className="section-title scroll-animate">My Stack</h2>
+          <div className="tech-icons-grid">
             {techStack.map((tech, index) => (
-              <div key={index} className="tech-card scroll-animate" style={{ animationDelay: `${index * 0.05}s` }}>
-                <div className="tech-icon-img">
-                  <img src={tech.image} alt={tech.name} />
-                </div>
-                <div className="tech-name">{tech.name}</div>
+              <div key={index} className="tech-icon-item scroll-animate">
+                <img src={tech.image} alt={tech.name} className="tech-icon-img-new" />
+                <span className="tech-icon-name">{tech.name}</span>
               </div>
             ))}
           </div>
@@ -207,7 +211,7 @@ export default function Home() {
             <h2 className="section-title">Projects</h2>
             <p className="section-subtitle">
               Here are some of the projects I've worked on during my studies.
-              Click on any project to see detailed information, screenshots, and features.
+              <br></br>Click on any project to see detailed information, screenshots and features.
             </p>
           </div>
           <div className="home-projects-grid">
@@ -218,21 +222,13 @@ export default function Home() {
             ))}
           </div>
           <div className="home-projects-cta scroll-animate">
-            <Link href="/projects" className="btn btn-primary">View All Projects</Link>          </div>
-
-          {/* ───── CONTACT ───── */}
-          <div className="home-contact scroll-animate">
-            <div className="home-contact-box">
-              <h2 className="section-title">Get In Touch</h2>
-              <p className="home-contact-subtitle">
-                Have a project in mind or just want to say hi? I'd love to hear from you!
-              </p>
-              <Link href="/contact" className="btn btn-primary">Contact Me</Link>
-            </div>
+            <Link href="/projects" className="btn btn-primary">View All Projects</Link>
           </div>
-
         </div>
       </section>
+
+      {/* ───── CONTACT ───── */}
+      <ContactSection />
 
       <Chatbot />
     </div>

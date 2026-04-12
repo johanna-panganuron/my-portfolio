@@ -1,0 +1,230 @@
+.skills-page {
+    min-height: 100vh;
+    background: var(--background-alt);
+    padding: 5rem 0 2rem;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.skills-header .section-subtitle {
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    font-size: 1rem;
+}
+
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.skill-category-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.skill-category-card:hover {
+    border-color: var(--black);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.skill-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.skill-category-icon {
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+.skill-category-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--black);
+    margin: 0;
+}
+
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.skill-item-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.skill-item-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.skill-item-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.skill-item-level {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.skill-bar-track {
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: var(--black);
+    border-radius: 2px;
+}
+
+/* Dark mode icon invert */
+[data-theme="dark"] .skill-item-icon[src*="github"],
+[data-theme="dark"] .skill-item-icon[src*="nextjs"],
+[data-theme="dark"] .skill-item-icon[src*="express"],
+[data-theme="dark"] .skill-item-icon[src*="vercel"] {
+    filter: invert(1);
+}
+
+
+
+.skill-category-card:nth-child(1) .skill-category-icon {
+    color: #10b981;
+}
+
+.skill-category-card:nth-child(2) .skill-category-icon {
+    color: #10b981;
+}
+
+.skill-category-card:nth-child(3) .skill-category-icon {
+    color: #10b981;
+}
+
+.skill-category-card:nth-child(4) .skill-category-icon {
+    color: #10b981;
+}
+
+.skill-category-card:nth-child(5) .skill-category-icon {
+    color: #10b981;
+}
+
+.skill-category-card:nth-child(6) .skill-category-icon {
+    color: #10b981;
+}
+
+.skill-category-card:nth-child(1) .skill-bar-fill {
+    background: #10b981;
+}
+
+.skill-category-card:nth-child(2) .skill-bar-fill {
+    background: #10b981;
+}
+
+.skill-category-card:nth-child(3) .skill-bar-fill {
+    background: #10b981;
+}
+
+.skill-category-card:nth-child(4) .skill-bar-fill {
+    background: #10b981;
+}
+
+.skill-category-card:nth-child(5) .skill-bar-fill {
+    background: #10b981;
+}
+
+.skill-category-card:nth-child(6) .skill-bar-fill {
+    background: #10b981;
+}
+
+
+
+.skill-category-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+@media (max-width: 1200px) {
+    .skills-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 968px) {
+    .skills-page {
+        padding: 3rem 0 2rem;
+    }
+
+    .skills-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-page {
+        padding: 2rem 0 2rem;
+    }
+
+    .skill-category-card {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .skills-categories {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-category-card {
+        padding: 1.25rem;
+    }
+
+    .skill-item-name {
+        font-size: 0.8rem;
+    }
+}

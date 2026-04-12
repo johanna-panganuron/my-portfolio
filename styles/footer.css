@@ -1,7 +1,7 @@
 .footer {
-  background: var(--black);
-  color: var(--white);
-  border-top: 1px solid var(--gray-800);
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-main {
@@ -25,7 +25,7 @@
 .footer-brand h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--footer-text); 
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0 0 0.75rem 0;
@@ -33,7 +33,7 @@
 
 .footer-brand p {
   font-size: 0.9rem;
-  color: var(--gray-400);
+  color: var(--footer-text-muted);
   line-height: 1.7;
   /* margin: 0 0 1.25rem 0; */
 }
@@ -46,7 +46,7 @@
 .social-link {
   width: 36px;
   height: 36px;
-  border: 1px solid var(--gray-700);
+  border: 1px solid var(--footer-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +66,7 @@
 .social-link svg {
   width: 16px;
   height: 16px;
-  color: var(--white);
+  color: var(--footer-text); 
   transition: all 0.3s ease;
 }
 
@@ -74,7 +74,7 @@
 .footer-col h4 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--footer-text);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0 0 1rem 0;
@@ -91,7 +91,7 @@
 
 .footer-col ul li a {
   font-size: 0.9rem;
-  color: var(--gray-400);
+  color: var(--footer-text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
   text-transform: uppercase;
@@ -99,7 +99,7 @@
 }
 
 .footer-col ul li a:hover {
-  color: var(--white);
+  color: var(--footer-text);
 }
 
 /* Column 3 - Contact */
@@ -112,13 +112,13 @@
 .footer-contact-item a,
 .footer-contact-item span {
   font-size: 0.9rem;
-  color: var(--gray-400);
+  color: var(--footer-text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-contact-item a:hover {
-  color: var(--white);
+  color: var(--footer-text);
 }
 
 /* Bottom Bar */
@@ -135,12 +135,12 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  border-top: 1px solid var(--gray-800); /* 👈 move here */
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-bottom p {
   font-size: 0.72rem;
-  color: var(--gray-600);
+  color: var(--footer-text-muted); 
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
@@ -148,7 +148,6 @@
 
 .footer-cols-mobile {
   display: contents;
-  /* 👈 transparent on desktop, lets grid work normally */
 }
 
 @media (max-width: 768px) {
@@ -176,21 +175,18 @@
   }
 
   .footer-col h4 {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .footer-col ul li a,
   .footer-contact-item a,
-  .footer-contact-item span {
-    font-size: 0.72rem;
-  }
-
+  .footer-contact-item span,
   .footer-brand p {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 
   .footer-bottom-container p {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
   }
 }
 
@@ -210,7 +206,14 @@
     font-size: 0.63rem;
   }
 
-  .footer-brand p {
-    font-size: 0.68rem;
+  .footer-brand p,
+  .footer-col ul li a,
+  .footer-contact-item a,
+  .footer-contact-item span {
+    font-size: 0.72rem;
+  }
+
+  .footer-bottom-container p {
+    font-size: 0.65rem;
   }
 }

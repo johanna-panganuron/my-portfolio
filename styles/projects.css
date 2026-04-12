@@ -1,7 +1,7 @@
 .projects-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 5rem 0;
+    padding: 5rem 0 0.5rem;
 }
 
 .projects-header {
@@ -14,6 +14,13 @@
     max-width: 900px;
     margin: 0.5rem auto 0;
     font-size: 1.1rem;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1rem;
 }
 
 .projects-grid {
@@ -84,12 +91,33 @@
 }
 
 .project-title1 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
     color: var(--text);
     font-weight: 700;
 }
 
+.project-year {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #10b981;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* .project-year::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    flex-shrink: 0;
+} */
 .project-title-link {
     color: var(--text);
     text-decoration: none;
@@ -127,11 +155,33 @@
 .tech-tag {
     background: var(--background-alt);
     color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 600;
     border: 1px solid var(--border);
+}
+
+.tech-tag-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+/* Dark mode color inversion for dark logos */
+[data-theme="dark"] .tech-tag-icon[src*="nextjs"],
+[data-theme="dark"] .tech-tag-icon[src*="express"],
+[data-theme="dark"] .tech-tag-icon[src*="json"],
+[data-theme="dark"] .tech-tag-icon[src*="socketio"],
+[data-theme="dark"] .tech-tag-icon[src*="vercel"],
+[data-theme="dark"] .tech-tag-icon[src*="github"],
+[data-theme="dark"] .tech-tag-icon[src*="microsoftexcel"],
+[data-theme="dark"] .tech-tag-icon[src*="simple-icons"],
+[data-theme="dark"] .tech-tag-icon[src*="axios"] {
+    filter: invert(1);
 }
 
 .project-bottom {
@@ -187,10 +237,87 @@
     letter-spacing: 0.05em;
 }
 
+.project-filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.filter-btn:hover {
+    border-color: var(--black);
+    color: var(--black);
+}
+
+.filter-btn.active {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+}
+
+.filter-btn .filter-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.15);
+    flex-shrink: 0;
+}
+
+.filter-icon-wrap svg {
+    color: #10b981;
+}
+
+.filter-btn.active .filter-icon-wrap svg {
+    color: #ffffff;
+}
+
+.filter-btn.active .filter-icon-wrap {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .filter-btn.active {
+    background: #ffffff;
+    color: #111111;
+    border-color: #ffffff;
+}
+
+[data-theme="dark"] .filter-btn.active .filter-icon-wrap svg {
+    color: #111111;
+}
+
+[data-theme="dark"] .filter-btn.active .filter-icon-wrap {
+    background: rgba(0, 0, 0, 0.15);
+}
+
 /* Mobile Responsive */
 @media (max-width: 968px) {
     .projects-page {
         padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem !important;
     }
 
     .projects-header {
@@ -216,6 +343,10 @@
 }
 
 @media (max-width: 768px) {
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
     .projects-page {
         padding: 2rem 0;
     }
@@ -245,6 +376,7 @@
     .project-description {
         font-size: 0.78rem;
     }
+
     .project-link {
         font-size: 0.85rem;
     }
@@ -290,11 +422,12 @@
     .project-content p {
         font-size: 0.8rem;
     }
-    
+
 
     .project-description {
         font-size: 0.75rem;
     }
+
     .project-link {
         font-size: 0.8rem;
     }
@@ -302,5 +435,33 @@
     .tech-tag {
         font-size: 0.75rem;
         padding: 0.25rem 0.7rem;
+    }
+
+    .project-filters {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .filter-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 0.45rem 0;
+        font-size: 0.68rem;
+        letter-spacing: 0;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .filter-btn .filter-icon-wrap {
+        width: 18px;
+        height: 18px;
+    }
+
+    .filter-icon-wrap svg {
+        width: 11px !important;
+        height: 11px !important;
     }
 }

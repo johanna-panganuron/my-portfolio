@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-import { FaLaptopCode, FaFolderOpen, FaEnvelope, FaBriefcase, FaUser, FaTrophy } from 'react-icons/fa'
+import { FaLaptopCode, FaFolderOpen, FaEnvelope, FaBriefcase, FaUser } from 'react-icons/fa'
 import Image from 'next/image'
 import '../styles/chatbot.css'
 
@@ -13,6 +13,7 @@ const quickReplies = [
   { label: 'For Hire?', icon: <FaBriefcase /> },
   { label: 'About', icon: <FaUser /> },
 ]
+
 export default function Chatbot() {
   const [showChatbot, setShowChatbot] = useState(false)
   const [messages, setMessages] = useState([
@@ -29,17 +30,14 @@ export default function Chatbot() {
   const getBotResponse = (userMessage) => {
     const msg = userMessage.toLowerCase()
 
-    if (msg.includes('hire') || msg.includes('job') || msg.includes('available') || msg.includes('opportunity')) {
-      return "I'm a fresh IT graduate open to full-time, part-time, or freelance opportunities. Feel free to reach out via the Contact page. 📬"
-
-    } else if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good morning') || msg.includes('good afternoon')) {
+    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good morning') || msg.includes('good afternoon')) {
       return "Hello! Nice to meet you. What would you like to know about me? 👋"
 
     } else if (msg.includes('skill') || msg.includes('technology') || msg.includes('tech stack') || msg.includes('what can you do')) {
       return "I'm skilled in Vue, React, Next.js, Node.js, Laravel, PHP, MySQL, MongoDB, and more — covering both frontend and backend development. 💻"
 
     } else if (msg.includes('project') || msg.includes('portfolio') || msg.includes('built') || msg.includes('made')) {
-      return "Here are some of my projects:\n\n• Pet Grooming Management System\n• CPC SSG Voting System\n• Task Tracker\n• CPC Library Management System\n\nVisit the Projects page to see the full details. 🚀"
+      return "Here are some of my projects:\n\n• Mimi\'s Pet Grooming Management System\n• CPC SSG Voting System\n• Task Tracker\n• CPC Library Management System\n\nVisit the Projects page to see the full details. 🚀"
 
     } else if (msg.includes('build') || msg.includes('create') || msg.includes('develop') || msg.includes('website') || msg.includes('app') || msg.includes('system')) {
       return "I'd love to help build something for you. Whether it's a website, web app, or a custom system — reach out via the Contact page and let's talk. 🤝"
@@ -48,7 +46,7 @@ export default function Chatbot() {
       return "I graduated with a Bachelor of Science in Information Technology from Cordova Public College (2022–2026), with TESDA certifications in Creative Web Design and Computer Systems Servicing (NC II). 🎓"
 
     } else if (msg.includes('experience') || msg.includes('ojt') || msg.includes('internship')) {
-      return "I completed my OJT at DSWD - Pantawid Pamilyang Pilipino Program (4Ps) in Cordova, Cebu as a Data Encoder from January to April 2026. 📋"
+      return "I completed my OJT at DSWD - Pantawid Pamilyang Pilipino Program (4Ps) in Cordova, Cebu as a Data Encoder from January to April 2026."
 
     } else if (msg.includes('hire') || msg.includes('job') || msg.includes('available') || msg.includes('opportunity')) {
       return "I'm a fresh IT graduate open to full-time, part-time, or freelance opportunities. Feel free to reach out via the Contact page. 📬"
@@ -57,7 +55,7 @@ export default function Chatbot() {
       return "I won 3rd Place and Best Technical Implementation at the Mini Hackathon (Figma) during IT Day at Cordova Public College in March 2026. 🏆"
 
     } else if (msg.includes('contact') || msg.includes('email') || msg.includes('reach') || msg.includes('phone')) {
-      return "You can reach me at johannapanganuron@gmail.com or call 0949 1280 100. I'm also on Facebook, GitHub, and LinkedIn. 📩"
+      return "You can reach me at johannapanganuron@gmail.com or call 0949 1280 100.\n\n🔗 Find me online:\n• Facebook: facebook.com/juwanaxz\n• LinkedIn: linkedin.com/in/johanna-panganuron"
 
     } else if (msg.includes('about') || msg.includes('who are you') || msg.includes('tell me about')) {
       return "I'm Johanna, a fresh IT graduate and Junior Full-Stack Web Developer passionate about building functional and user-friendly web applications. Check my About page to learn more. 😊"
@@ -103,6 +101,30 @@ export default function Chatbot() {
     if (e.key === 'Enter') handleSend()
   }
 
+  const renderMessageText = (text) => {
+    const urlRegex = /(https?:\/\/[^\s]+|(?:facebook|linkedin)\.com\/[^\s]+)/g
+    return text.split('\n').map((line, i) => {
+      const parts = line.split(urlRegex)
+      return (
+        <span key={i}>
+          {parts.map((part, j) => {
+            const isUrl = /^(https?:\/\/[^\s]+|(?:facebook|linkedin)\.com\/[^\s]+)$/.test(part)
+            if (isUrl) {
+              const href = part.startsWith('http') ? part : `https://${part}`
+              return (
+                <a key={j} href={href} target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', textDecoration: 'underline', wordBreak: 'break-all' }}>
+                  {part}
+                </a>
+              )
+            }
+            return <span key={j}>{part}</span>
+          })}
+          <br />
+        </span>
+      )
+    })
+  }
+
   return (
     <div className={`chatbot-container ${showChatbot ? 'open' : ''}`}>
       {!showChatbot && (
@@ -125,14 +147,24 @@ export default function Chatbot() {
         {showChatbot ? (
           <FontAwesomeIcon icon={faTimes} />
         ) : (
-          <Image
-            src="/images/profile.png"
-            alt="Chat with Johanna"
-            width={60}
-            height={60}
-            className="chatbot-avatar"
-            quality={100}
-          />
+          <>
+            <Image
+              src="/images/profile.png"
+              alt="Chat with Johanna"
+              width={60}
+              height={60}
+              className="chatbot-avatar profile-light"
+              quality={100}
+            />
+            <Image
+              src="/images/profile-dark.png"
+              alt="Chat with Johanna"
+              width={60}
+              height={60}
+              className="chatbot-avatar profile-dark"
+              quality={100}
+            />
+          </>
         )}
       </button>
 
@@ -145,7 +177,15 @@ export default function Chatbot() {
                 alt="Johanna"
                 width={40}
                 height={40}
-                className="chatbot-header-avatar"
+                className="chatbot-header-avatar profile-light"
+                quality={100}
+              />
+              <Image
+                src="/images/profile-dark.png"
+                alt="Johanna"
+                width={40}
+                height={40}
+                className="chatbot-header-avatar profile-dark"
                 quality={100}
               />
               <div>
@@ -162,23 +202,26 @@ export default function Chatbot() {
             {messages.map((msg, idx) => (
               <div key={idx} className={`message ${msg.sender}`}>
                 {msg.sender === 'bot' && (
-                  <Image src="/images/profile.png" alt="Johanna" width={30} height={30} className="message-avatar" />
+                  <>
+                    <Image src="/images/profile.png" alt="Johanna" width={30} height={30} className="message-avatar profile-light" />
+                    <Image src="/images/profile-dark.png" alt="Johanna" width={30} height={30} className="message-avatar profile-dark" />
+                  </>
                 )}
                 <div className="message-wrapper">
                   <div className="message-text">
-                    {msg.text.split('\n').map((line, i) => (
-                      <span key={i}>{line}<br /></span>
-                    ))}
+                    {renderMessageText(msg.text)}
                   </div>
                   <span className="message-time">{msg.time}</span>
                 </div>
               </div>
             ))}
 
-            {/* Typing Indicator */}
             {isTyping && (
               <div className="message bot">
-                <Image src="/images/profile.png" alt="Johanna" width={30} height={30} className="message-avatar" />
+                <>
+                  <Image src="/images/profile.png" alt="Johanna" width={30} height={30} className="message-avatar profile-light" />
+                  <Image src="/images/profile-dark.png" alt="Johanna" width={30} height={30} className="message-avatar profile-dark" />
+                </>
                 <div className="message-wrapper">
                   <div className="message-text typing-indicator">
                     <span></span>
@@ -190,7 +233,6 @@ export default function Chatbot() {
             )}
           </div>
 
-          {/* Quick Replies */}
           <div className="chatbot-quick-replies">
             {quickReplies.map((reply, index) => (
               <button key={index} className="quick-reply-btn" onClick={() => handleSend(reply.label)}>

@@ -11,34 +11,10 @@
     transform: translateY(0);
 }
 
-/* Stagger animation delays for cards */
-.home-project-card.scroll-animate {
-    transition-delay: var(--animation-delay, 0s);
-}
-
-.tech-card.scroll-animate {
-    transition-delay: var(--animation-delay, 0s);
-}
-
 /* About Me Section */
 .home-about {
     padding: 5rem 0;
-    background: var(--white);
-}
-
-.home-about-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4rem;
-    align-items: start;
-}
-
-.home-about-img {
-    border-radius: 50%;
-    object-fit: cover;
-    width: 280px;
-    height: 280px;
-    border: 3px solid var(--border);
+    background: var(--background);
 }
 
 .home-about-content h3 {
@@ -104,17 +80,11 @@
     display: inline-block;
 }
 
-.home-about-btn,
-.home-projects-cta .btn-outline,
-.home-contact .btn-primary {
-    padding: 0.6rem 2rem;
-    font-size: 0.85rem;
-}
-
 /* Featured Projects Section */
 .featured-projects {
-    padding: 5rem 0;
-    background: var(--background-white);
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    background: var(--background);
 }
 
 .featured-projects .section-header {
@@ -139,167 +109,13 @@
     margin-bottom: 3rem;
 }
 
-.home-project-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.home-project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--shadow-hover);
-    border-color: var(--black);
-}
-
-.project-image {
-    position: relative;
-    overflow: hidden;
-    height: 200px;
-}
-
-.image-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-img {
-    transform: scale(1.05);
-}
-
-.home-project-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.home-project-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--text);
-    font-weight: 700;
-}
-
-
-
-.project-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--text);
-    font-weight: 700;
-}
-
-.project-content p {
-    color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.home-project-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.2rem;
-    margin-top: auto;
-}
-
-.home-tech-tag {
-    background: var(--background-alt);
-    color: var(--text);
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border: 1px solid var(--border);
-}
-
-.home-project-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    color: var(--black);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 0.4rem 0;
-    border: none;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-.home-project-link:hover {
-    color: var(--text-light);
-    background: transparent;
-    gap: 0.6rem;
-}
-
 .home-projects-cta {
     text-align: center;
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
-/* Contact Section */
-.home-contact {
-    padding: 3rem 0 0;
-    /* background: var(--background-alt); */
-    text-align: center;
-    animation: fadeInUp 0.6s ease;
-}
-
-.home-contact-box {
-    background: var(--black);
-    padding: 2.5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.home-contact .section-title {
-    color: var(--white);
-}
-
-.home-contact .section-title::after {
-    background: var(--white);
-}
-
-.home-contact-subtitle {
-    color: var(--gray-400);
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-.home-contact .btn-primary {
-    background: var(--white);
-    color: var(--black);
-    border: 2px solid var(--white);
-}
-
-.home-contact .btn-primary:hover {
-    background: transparent;
-    color: var(--white);
-}
-
-.home-projects-cta .btn-primary {
-    padding: 0.6rem 2rem;
-    font-size: 0.85rem;
-    /* text-transform: none; */
-}
-
-/* For Real Photo */
+/* Profile Image */
 .profile-image-wrapper {
     width: 420px;
     height: 420px;
@@ -313,7 +129,6 @@
     right: -20px;
     bottom: -20px;
     left: -20px;
-    /* border: 2px solid var(--gray-700); */
     transition: all 0.5s ease;
 }
 
@@ -322,8 +137,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    /* border: 6px solid var(--white); */
-    /* filter: grayscale(100%); */
     transition: all 0.5s ease;
 }
 
@@ -339,7 +152,7 @@
 
 /* Hero Section */
 .hero {
-    background: var(--black);
+    background: var(--hero-bg);
     padding: 8rem 0;
     position: relative;
     min-height: 80vh;
@@ -347,7 +160,6 @@
     align-items: center;
 }
 
-/* Hero Grid Layout */
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -355,18 +167,17 @@
     align-items: center;
 }
 
-/* Left Side - Content */
 .hero-content {
     position: relative;
     z-index: 1;
-    color: var(--white);
+    color: var(--hero-text);
     text-align: left;
     animation: fadeInLeft 0.8s ease;
 }
 
 .hero h1 {
     font-size: 3rem;
-    color: var(--white);
+    color: var(--hero-text);
     margin-bottom: 1rem;
     font-weight: 900;
     letter-spacing: -0.03em;
@@ -375,7 +186,7 @@
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--gray-300);
+    color: var(--hero-text);
     margin-bottom: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.02em;
@@ -386,13 +197,11 @@
 
 .hero-subtitle-icon {
     font-size: 20px;
-    color: var(--gray-300);
+    color: var(--hero-text);
     flex-shrink: 0;
     animation: fadeRole 0.4s ease;
     background: transparent;
-    /* 👈 add */
     fill: currentColor;
-    /* 👈 add */
 }
 
 @keyframes fadeRole {
@@ -400,7 +209,6 @@
         opacity: 0;
         transform: scale(0.5);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
@@ -409,7 +217,7 @@
 
 .hero-description {
     font-size: 1rem;
-    color: var(--gray-400);
+    color: var(--hero-text);
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
@@ -426,24 +234,24 @@
 }
 
 .hero .btn-primary {
-    background: var(--white);
-    color: var(--black);
-    border: 2px solid var(--white);
+    background: var(--hero-text);
+    color: var(--hero-bg);
+    border: 2px solid var(--hero-text);
 }
 
 .hero .btn-primary:hover {
     background: transparent;
-    color: var(--white);
+    color: var(--hero-text);
 }
 
 .hero .btn-outline {
-    border-color: var(--white);
-    color: var(--white);
+    border-color: var(--hero-text);
+    color: var(--hero-text);
 }
 
 .hero .btn-outline:hover {
-    background: var(--white);
-    color: var(--black);
+    background: var(--hero-text);
+    color: var(--hero-bg);
 }
 
 /* Waving Hand Animation */
@@ -454,40 +262,31 @@
     font-size: 1em;
     font-style: normal;
     background: transparent !important;
-    /* 👈 force transparent */
     font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
 
 @keyframes wave {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: rotate(0deg);
     }
-
-    10%,
-    30% {
+    10%, 30% {
         transform: rotate(14deg);
     }
-
     20% {
         transform: rotate(-8deg);
     }
-
     40% {
         transform: rotate(-4deg);
     }
-
     50% {
         transform: rotate(10deg);
     }
-
     60% {
         transform: rotate(0deg);
     }
 }
 
-/* Right Side - Profile Image */
+/* Hero Image */
 .hero-image {
     display: flex;
     justify-content: center;
@@ -495,96 +294,65 @@
     animation: fadeInRight 0.8s ease;
 }
 
-.profile-avatar {
-    width: 350px;
-    height: 350px;
-    border: 6px solid var(--white);
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
-    color: var(--black);
-    font-weight: 900;
-    transition: all 0.5s ease;
-    position: relative;
-}
-
-.profile-avatar::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    bottom: -20px;
-    left: -20px;
-    border: 2px solid var(--gray-700);
-    transition: all 0.5s ease;
-}
-
-.profile-avatar:hover {
-    transform: scale(1.05);
-}
-
-.profile-avatar:hover::before {
-    border-color: var(--white);
-    transform: rotate(5deg);
-}
-
+/* Tech Stack Section */
 /* Tech Stack Section */
 .tech-stack {
     background: var(--background-alt);
+    padding: 5rem 0;
 }
 
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.tech-card {
-    background: var(--white);
-    padding: 2rem;
-    text-align: center;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-}
-
-.tech-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--black);
-    box-shadow: 0 8px 30px var(--shadow-hover);
-}
-
-.tech-icon-img {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 1rem;
+.tech-icons-grid {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
+    margin-top: 2rem;
+}
+
+.tech-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 70px;
+    width: auto;
+    cursor: default;
     transition: all 0.3s ease;
 }
 
-.tech-icon-img img {
-    width: 100%;
-    height: 100%;
+.tech-icon-item:hover {
+    transform: translateY(-5px);
+}
+
+.tech-icon-img-new {
+    width: 48px;
+    height: 48px;
     object-fit: contain;
     transition: all 0.3s ease;
 }
 
-.tech-card:hover .tech-icon-img img {
+.tech-icon-item:hover .tech-icon-img-new {
     transform: scale(1.15);
 }
 
-.tech-name {
+.tech-icon-name {
+    font-size: 0.7rem;
     font-weight: 600;
-    color: var(--text);
-    font-size: 1rem;
+    color: var(--text-light);
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    word-break: keep-all;
+    max-width: 80px;
+}
+
+/* Dark mode color inversion for dark logos */
+[data-theme="dark"] .tech-icon-img-new[src*="github"],
+[data-theme="dark"] .tech-icon-img-new[src*="nextjs"],
+[data-theme="dark"] .tech-icon-img-new[src*="express"],
+[data-theme="dark"] .tech-icon-img-new[src*="vercel"] {
+    filter: invert(1);
 }
 
 /* Animations */
@@ -593,7 +361,6 @@
         opacity: 0;
         transform: translateX(-50px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0);
@@ -605,7 +372,6 @@
         opacity: 0;
         transform: translateX(50px);
     }
-
     to {
         opacity: 1;
         transform: translateX(0);
@@ -622,18 +388,6 @@
     display: flex;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .role-text {
     display: inline;
 }
@@ -647,12 +401,9 @@
 }
 
 @keyframes blink {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
@@ -688,15 +439,13 @@
     }
 
     .hero-description {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
-    /* Hide desktop image */
     .hero-image-desktop {
         display: none;
     }
 
-    /* Show mobile image */
     .hero-image-mobile {
         display: flex;
         justify-content: center;
@@ -709,10 +458,6 @@
     }
 
     .section-title {
-        font-size: 1.8rem;
-    }
-
-    .home-contact .section-title {
         font-size: 1.8rem;
     }
 
@@ -740,22 +485,18 @@
         font-size: 0.95rem;
     }
 
-    .home-project-title {
-        font-size: 1.2rem;
-    }
-
-
     .tech-stack {
         overflow-x: hidden;
-    }
-
-    .tech-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
+    .home-about,
+    .tech-stack {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
     .hero {
         padding: 4rem 0;
     }
@@ -799,10 +540,6 @@
         font-size: 1.5rem;
     }
 
-    .home-contact .section-title {
-        font-size: 1.5rem;
-    }
-
     .home-about-content h3 {
         font-size: 1.3rem;
     }
@@ -836,25 +573,29 @@
     }
 
     .tech-stack {
-        overflow-x: hidden;
+        overflow-x: visible;
     }
-
-    .tech-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
+    
+    .tech-icons-grid {
+        gap: 1.25rem;
+        justify-content: center;
     }
-
-    .tech-card {
-        padding: 1rem;
+    
+    .tech-icon-item {
+        min-width: 60px;
+        flex: 0 0 auto;
     }
-
-    .tech-icon-img {
-        width: 45px;
-        height: 45px;
+    
+    .tech-icon-img-new {
+        width: 38px;
+        height: 38px;
     }
-
-    .featured-projects {
-        padding: 3rem 0;
+    
+    .tech-icon-name {
+        font-size: 0.6rem;
+        white-space: normal;
+        word-break: break-word;
+        max-width: 70px;
     }
 
     .featured-projects .section-subtitle {
@@ -865,51 +606,15 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-
-    .project-image {
-        height: 180px;
-    }
-
-    .home-project-title {
-        font-size: 1.1rem;
-    }
-
-    .project-description {
-        font-size: 0.78rem !important;
-    }
-
-
-    .home-projects-cta .btn-outline {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    .home-contact {
-        padding: 2rem 1rem;
-    }
-
-    .home-contact-box {
-        padding: 2rem 1.5rem;
-    }
-
-    .home-contact .btn-primary {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
-    }
-
-    .home-contact-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .scroll-to-top {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        width: 45px;
-        height: 45px;
-    }
 }
 
 @media (max-width: 480px) {
+    .home-about,
+    .tech-stack {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
     .hero h1 {
         font-size: 1.75rem;
     }
@@ -942,10 +647,6 @@
         font-size: 1.3rem;
     }
 
-    .home-contact .section-title {
-        font-size: 1.3rem;
-    }
-
     .home-about-content h3 {
         font-size: 1.2rem;
     }
@@ -967,62 +668,29 @@
     }
 
     .tech-stack {
-        overflow-x: hidden;
+        overflow-x: visible;
     }
-
-    .tech-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
+    
+    .tech-icons-grid {
+        gap: 1rem;
+        justify-content: center;
     }
-
-    .tech-card {
-        padding: 0.75rem;
+    
+    .tech-icon-item {
+        min-width: 55px;
+        flex: 0 0 auto;
     }
-
-    .tech-icon-img {
+    
+    .tech-icon-img-new {
         width: 35px;
         height: 35px;
     }
-
-    .tech-name {
-        font-size: 0.65rem;
+    
+    .tech-icon-name {
+        font-size: 0.55rem;
+        max-width: 60px;
     }
-
     .featured-projects .section-subtitle {
         font-size: 0.85rem;
-    }
-
-    .home-project-card {
-        margin: 0 0.5rem;
-    }
-
-    .home-project-title {
-        font-size: 1rem;
-    }
-
-    .home-project-description {
-        font-size: 0.85rem;
-    }
-
-    .home-contact-box {
-        padding: 1.5rem 1rem;
-    }
-
-    .home-contact .btn-primary {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-    }
-
-    .home-contact-subtitle {
-        font-size: 0.85rem;
-    }
-
-    .home-projects-cta .btn-outline {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-    }
-
-    .project-description {
-        font-size: 0.75rem !important;
     }
 }
