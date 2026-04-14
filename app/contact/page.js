@@ -234,8 +234,7 @@ export default function Contact() {
                   type="submit"
                   className="submit-btn"
                   disabled={status === 'sending'}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                 
                 >
                   {status === 'sending' ? (
                     <>

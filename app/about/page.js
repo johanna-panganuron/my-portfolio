@@ -116,8 +116,9 @@ export default function About() {
                 Excited to contribute to a team where I can grow, collaborate, and make a meaningful impact.
               </motion.p>
               <motion.a
-                href="/resume.pdf"
-                download="Panganuron_Johanna_Resume.pdf"
+                href="https://docs.google.com/document/d/1Rh-sByf3tgKurqGucIbHMmOJDI4HdjmdLX5zNKWp4Ww/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="resume-btn"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -158,95 +159,98 @@ export default function About() {
             ))}
           </div>
 
-          {/* Experience */}
-          <motion.div
-            className="about-section-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="section-title">Experience</h2>
-            <div className="about-section-item">
-              <div className="about-award-icon briefcase">
-                <FontAwesomeIcon icon={faKeyboard} />
+          {/* Education + Experience side by side */}
+          <div className="about-side-by-side">
+            <motion.div
+              className="about-section-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="section-title">Education</h2>
+              <div className="about-section-item">
+                <Image src="/images/school-logo.jpg" alt="Cordova Public College" width={55} height={55} className="about-section-logo" />
+                <div>
+                  <p className="about-section-title">Bachelor of Science in Information Technology</p>
+                  <p className="about-section-subtitle">Cordova Public College</p>
+                  <p className="about-section-year">August 2022 - June 2026</p>
+                </div>
               </div>
-              <div>
-                <p className="about-section-title">Data Encoder (OJT)</p>
-                <p className="about-section-subtitle">DSWD - Pantawid Pamilyang Pilipino Program (4Ps) • Cordova, Cebu</p>
-                <p className="about-section-year">January 2026 – April 2026</p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Education */}
-          <motion.div
-            className="about-section-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="section-title">Education</h2>
-            <div className="about-section-item">
-              <Image src="/images/school-logo.jpg" alt="Cordova Public College" width={55} height={55} className="about-section-logo" />
-              <div>
-                <p className="about-section-title">Bachelor of Science in Information Technology</p>
-                <p className="about-section-subtitle">Cordova Public College</p>
-                <p className="about-section-year">August 2022 - June 2026</p>
+            {/* Experience */}
+            <motion.div
+              className="about-section-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="section-title">Experience</h2>
+              <div className="about-section-item">
+                <div className="about-award-icon briefcase">
+                  <FontAwesomeIcon icon={faKeyboard} />
+                </div>
+                <div>
+                  <p className="about-section-title">Data Encoder (OJT)</p>
+                  <p className="about-section-subtitle">DSWD - Pantawid Pamilyang Pilipino Program (4Ps) • Cordova, Cebu</p>
+                  <p className="about-section-year">January 2026 – April 2026</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Certifications */}
-          <motion.div
-            className="about-section-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="section-title">Certifications</h2>
-            <div className="about-section-item">
-              <img src="/images/tesda-logo.png" alt="TESDA" className="about-section-logo1" />
-              <div>
-                <p className="about-section-title">Creative Web Design</p>
-                <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
-                <p className="about-section-year">August 11 - August 23, 2023</p>
+          <div className="about-side-by-side">
+            <motion.div
+              className="about-section-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="section-title">Certifications</h2>
+              <div className="about-section-item">
+                <img src="/images/tesda-logo.png" alt="TESDA" className="about-section-logo1" />
+                <div>
+                  <p className="about-section-title">Creative Web Design</p>
+                  <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
+                  <p className="about-section-year">August 11 - August 23, 2023</p>
+                </div>
               </div>
-            </div>
-            <div className="about-section-item">
-              <img src="/images/tesda-logo.png" alt="TESDA" className="about-section-logo1" />
-              <div>
-                <p className="about-section-title">Computer Systems Servicing (NC II)</p>
-                <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
-                <p className="about-section-year">June 26 - September 3, 2024</p>
+              <div className="about-section-item">
+                <img src="/images/tesda-logo.png" alt="TESDA" className="about-section-logo1" />
+                <div>
+                  <p className="about-section-title">Computer Systems Servicing (NC II)</p>
+                  <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
+                  <p className="about-section-year">June 26 - September 3, 2024</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Honors & Awards */}
-          <motion.div
-            className="about-section-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="section-title">Honors & Awards</h2>
-            <div className="about-section-item">
-              <div className="about-award-icon trophy">
-                <FontAwesomeIcon icon={faTrophy} />
+            {/* Honors & Awards */}
+            <motion.div
+              className="about-section-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="section-title">Honors & Awards</h2>
+              <div className="about-section-item">
+                <div className="about-award-icon trophy">
+                  <FontAwesomeIcon icon={faTrophy} />
+                </div>
+                <div>
+                  <p className="about-section-title">3rd Placer & Best Technical Implementation</p>
+                  <p className="about-section-subtitle">Mini Hackathon (Figma) - IT Day</p>
+                  <p className="about-section-subtitle">Cordova Public College</p>
+                  <p className="about-section-year">March 19, 2026</p>
+                </div>
               </div>
-              <div>
-                <p className="about-section-title">3rd Placer & Best Technical Implementation</p>
-                <p className="about-section-subtitle">Mini Hackathon (Figma) - IT Day</p>
-                <p className="about-section-subtitle">Cordova Public College</p>
-                <p className="about-section-year">March 19, 2026</p>
-              </div>
-            </div>
-          </motion.div>
-
+            </motion.div>
+          </div>
           {/* Technical Skills */}
           {/* <motion.div
             className="skills-section"

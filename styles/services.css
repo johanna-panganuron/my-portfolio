@@ -1,7 +1,7 @@
 .services-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 5rem 0 2rem;
+    padding: 5rem 0 0rem;
 }
 
 .services-header {
@@ -143,6 +143,14 @@
 @media (max-width: 768px) {
     .services-page {
         padding: 2rem 0 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem !important;
     }
 
     .service-card {

@@ -1,8 +1,5 @@
 'use client'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faFigma } from '@fortawesome/free-brands-svg-icons'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -75,12 +72,12 @@ export default function ProjectCard({
       </div>
 
       <div className="project-content">
-      <h3 className="project-title1">
-  <Link href={`/projects/${projectSlug}`} className="project-title-link">
-    {title}
-  </Link>
-</h3>
-{year && <span className="project-year">{year}</span>}
+        <h3 className="project-title1">
+          <Link href={`/projects/${projectSlug}`} className="project-title-link">
+            {title}
+          </Link>
+        </h3>
+        {year && <span className="project-year">{year}</span>}
 
         <p className="project-description">
           {description}
@@ -102,45 +99,6 @@ export default function ProjectCard({
           </div>
 
           <div className="project-links">
-            {/* {githubLink && (
-            <a
-              href={githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <FontAwesomeIcon icon={faGithub} />
-              <span>Code</span>
-            </a>
-          )} */}
-
-            {/* {liveLink && (
-            <a
-              href={liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <FontAwesomeIcon icon={faExternalLinkAlt} />
-              <span>Live Demo</span>
-            </a>
-          )} */}
-
-            {/* {figmaLink && (
-            <a
-              href={figmaLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-link"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <FontAwesomeIcon icon={faFigma} />
-              <span>Design</span>
-            </a>
-          )} */}
-
             <Link href={`/projects/${projectSlug}`} className="project-link view-details">
               <span>View Project Details →</span>
             </Link>

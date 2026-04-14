@@ -1,7 +1,7 @@
 .projects-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 5rem 0 0.5rem;
+    padding: 5rem 0 0rem;
 }
 
 .projects-header {
@@ -260,11 +260,8 @@
     letter-spacing: 0.05em;
     transition: all 0.3s ease;
     border-radius: 4px;
-}
-
-.filter-btn:hover {
-    border-color: var(--black);
-    color: var(--black);
+    box-sizing: border-box;
+    width: auto;
 }
 
 .filter-btn.active {
@@ -273,6 +270,10 @@
     border-color: var(--black);
 }
 
+.filter-btn:hover {
+    border-color: var(--black);
+    color: var(--black);
+}
 .filter-btn .filter-icon-wrap {
     display: inline-flex;
     align-items: center;
@@ -343,8 +344,12 @@
 }
 
 @media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+
     .section-subtitle {
-        font-size: 0.85rem;
+        font-size: 0.9rem !important;
     }
 
     .projects-page {

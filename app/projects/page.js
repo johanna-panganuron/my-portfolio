@@ -112,7 +112,14 @@ export default function Projects() {
           </motion.div>
 
           {/* Filter Buttons */}
-          <div className="project-filters">
+
+          <motion.div
+            className="project-filters"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             {filters.map(filter => (
               <button
                 key={filter.key}
@@ -120,18 +127,12 @@ export default function Projects() {
                 onClick={() => setActiveFilter(filter.key)}
               >
                 <span className="filter-icon-wrap">
-                  <FontAwesomeIcon
-                    icon={filter.icon}
-                    style={{
-                      width: 14,
-                      height: 14,
-                    }}
-                  />
+                  <FontAwesomeIcon icon={filter.icon} style={{ width: 14, height: 14 }} />
                 </span>
                 {filter.label}
               </button>
             ))}
-          </div>
+          </motion.div>
 
           <div className="projects-grid">
             {filtered.map((project, index) => (

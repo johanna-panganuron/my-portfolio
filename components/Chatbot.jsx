@@ -2,16 +2,18 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
-import { FaLaptopCode, FaFolderOpen, FaEnvelope, FaBriefcase, FaUser } from 'react-icons/fa'
+import { FaLaptopCode, FaFolderOpen, FaEnvelope, FaBriefcase, FaUser, FaTools } from 'react-icons/fa'
 import Image from 'next/image'
 import '../styles/chatbot.css'
 
 const quickReplies = [
+  { label: 'About', icon: <FaUser /> },
   { label: 'Skills', icon: <FaLaptopCode /> },
   { label: 'Projects', icon: <FaFolderOpen /> },
+  { label: 'Services', icon: <FaTools /> },
   { label: 'Contact', icon: <FaEnvelope /> },
   { label: 'For Hire?', icon: <FaBriefcase /> },
-  { label: 'About', icon: <FaUser /> },
+  
 ]
 
 export default function Chatbot() {
@@ -30,12 +32,18 @@ export default function Chatbot() {
   const getBotResponse = (userMessage) => {
     const msg = userMessage.toLowerCase()
 
-    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good morning') || msg.includes('good afternoon')) {
+    if (msg.includes('hire') || msg.includes('job') || msg.includes('available') || msg.includes('opportunity')) {
+      return "I'm a fresh IT graduate open to full-time, part-time, or freelance opportunities. Feel free to reach out via the Contact page. 📬"
+
+    } else if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('good morning') || msg.includes('good afternoon')) {
       return "Hello! Nice to meet you. What would you like to know about me? 👋"
 
     } else if (msg.includes('skill') || msg.includes('technology') || msg.includes('tech stack') || msg.includes('what can you do')) {
       return "I'm skilled in Vue, React, Next.js, Node.js, Laravel, PHP, MySQL, MongoDB, and more — covering both frontend and backend development. 💻"
 
+    } else if (msg.includes('service') || msg.includes('offer') || msg.includes('help') || msg.includes('what do you do')) {
+      return "Here's what I can help you with:\n\n• Full-Stack Web Development (React, Next.js, Vue, Node.js, Laravel)\n• Frontend Development (JavaScript, TypeScript, CSS, Tailwind)\n• Backend Development (Node.js, Express.js, PHP, Laravel)\n• Database Design (MySQL, MongoDB)\n• UI/UX Design (Figma, Wireframing, Prototyping)\n• Responsive Web Design\n\nVisit the Services page for more details. 🛠️"
+    
     } else if (msg.includes('project') || msg.includes('portfolio') || msg.includes('built') || msg.includes('made')) {
       return "Here are some of my projects:\n\n• Mimi\'s Pet Grooming Management System\n• CPC SSG Voting System\n• Task Tracker\n• CPC Library Management System\n\nVisit the Projects page to see the full details. 🚀"
 
@@ -47,9 +55,6 @@ export default function Chatbot() {
 
     } else if (msg.includes('experience') || msg.includes('ojt') || msg.includes('internship')) {
       return "I completed my OJT at DSWD - Pantawid Pamilyang Pilipino Program (4Ps) in Cordova, Cebu as a Data Encoder from January to April 2026."
-
-    } else if (msg.includes('hire') || msg.includes('job') || msg.includes('available') || msg.includes('opportunity')) {
-      return "I'm a fresh IT graduate open to full-time, part-time, or freelance opportunities. Feel free to reach out via the Contact page. 📬"
 
     } else if (msg.includes('award') || msg.includes('achievement') || msg.includes('hackathon')) {
       return "I won 3rd Place and Best Technical Implementation at the Mini Hackathon (Figma) during IT Day at Cordova Public College in March 2026. 🏆"

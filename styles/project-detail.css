@@ -560,6 +560,16 @@
     .other-project-img-wrap {
         height: 150px;
     }
+    .nav-btn {
+        font-size: 0.75rem;
+        padding: 0.7rem 1.2rem;
+    }
+    .links-container .btn {
+        justify-content: center;
+        width: 100%;
+        padding: 0.8rem 0.5rem; /* Adjusted padding */
+        font-size: 0.8rem !important; /* Forces the small size */
+    }
 }
 
 @media (max-width: 480px) {
@@ -626,5 +636,13 @@
 
     .other-project-img-wrap {
         height: 180px;
+    }
+    .links-container .btn {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.75rem !important;
+    }
+    
+    .links-container .btn svg {
+        font-size: 0.9rem;
     }
 }

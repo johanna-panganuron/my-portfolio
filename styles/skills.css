@@ -1,7 +1,7 @@
 .skills-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 5rem 0 2rem;
+    padding: 5rem 0 0rem;
 }
 
 .skills-header {
@@ -207,6 +207,14 @@
 @media (max-width: 768px) {
     .skills-page {
         padding: 2rem 0 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem !important;
     }
 
     .skill-category-card {

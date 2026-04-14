@@ -606,6 +606,7 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -692,5 +693,9 @@
     }
     .featured-projects .section-subtitle {
         font-size: 0.85rem;
+    }
+    .home-projects-cta .btn-primary {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
     }
 }

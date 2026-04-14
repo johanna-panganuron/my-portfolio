@@ -32,9 +32,6 @@
 }
 
 .home-contact .btn-primary {
-    background: var(--black);
-    color: var(--white);
-    border: 2px solid var(--black);
     padding: 0.6rem 2rem;
     font-size: 0.85rem;
 }

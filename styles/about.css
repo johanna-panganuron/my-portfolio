@@ -1,12 +1,17 @@
 .about-page {
     min-height: 100vh;
     background: var(--background-alt);
-    padding: 5rem 0 2rem;
+    padding: 5rem 0 0rem;
+    /* padding: 5rem 0 2rem; */
 }
 
 .about-header {
     text-align: center;
     margin-bottom: 4rem;
+}
+
+.about-section-card .section-title {
+    font-size: 1.4rem;
 }
 
 /* Cover Photo */
@@ -159,7 +164,7 @@
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid var(--black);
-    transition: all 0.5s ease;
+    /* transition: all 0.5s ease; */
 }
 
 .profile-image:hover {
@@ -195,7 +200,7 @@
     padding: 1.5rem;
     text-align: left;
     border: 1px solid var(--border);
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
     display: flex;
     align-items: center;
     gap: 1.2rem;
@@ -250,13 +255,14 @@
     border-radius: 4px;
     font-weight: 600;
     font-size: 0.85rem;
-    /* margin-top: 1rem;*/
-    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    /* prevents layout shift */
 }
 
 .resume-btn:hover {
-    background: var(--text);
-    transform: translateY(-2px);
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--border);
 }
 
 /* Skills Section */
@@ -389,6 +395,7 @@
     /* border: 1px solid var(--border); */
     flex-shrink: 0;
 }
+
 .about-section-title {
     font-size: 0.95rem;
     font-weight: 700;
@@ -406,6 +413,17 @@
     font-size: 0.8rem;
     color: var(--gray-400);
     margin: 0;
+}
+
+.about-side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-side-by-side .about-section-card {
+    margin-bottom: 0;
 }
 
 /* Timeline */
@@ -459,7 +477,7 @@
     padding: 1.2rem 1.5rem;
     max-width: 400px;
     width: 100%;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
 }
 
 .timeline-content:hover {
@@ -586,16 +604,23 @@
         width: 80px;
         height: 80px;
     }
-    .section-title{
+
+    .section-title {
         font-size: 1.5rem;
     }
+
     .about-section-card .section-title,
     .skills-section .section-title {
         font-size: 1.3rem;
     }
+    .timeline-cta .btn-primary{
+        padding: 0.5rem 1.5rem;
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 768px) {
+
     .about-cover-section,
     .about-profile-info-section,
     .about-section-card,
@@ -605,6 +630,7 @@
         margin-left: 0.5rem;
         margin-right: 0.5rem;
     }
+
     .about-page {
         padding: 2rem 0;
     }
@@ -651,6 +677,10 @@
         font-size: 0.9rem;
     }
 
+    .about-side-by-side {
+        grid-template-columns: 1fr;
+    }
+
     .timeline::before {
         left: 1rem;
     }
@@ -674,9 +704,14 @@
     .skills-section .section-title {
         font-size: 1.2rem;
     }
+    .timeline-cta .btn-primary {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 480px) {
+
     .about-cover-section,
     .about-profile-info-section,
     .about-section-card,
@@ -686,6 +721,7 @@
         margin-left: 0.5rem;
         margin-right: 0.5rem;
     }
+
     .about-cover-photo {
         height: 140px;
     }
@@ -731,6 +767,11 @@
         font-size: 0.85rem;
         width: 100%;
         justify-content: center;
+    }
+
+    .timeline-cta .btn-primary{
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
     }
 
     .about-section-card .section-title,
