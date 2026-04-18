@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import ProjectCard from '@/components/ProjectCard'
 import ContactSection from '@/components/ContactSection'
 import Chatbot from '@/components/Chatbot'
-import { faLayerGroup, faCode, faPenNib } from '@fortawesome/free-solid-svg-icons'
+import { faLayerGroup, faCode, faPenNib, faDesktop } from '@fortawesome/free-solid-svg-icons'
+import { GiSandsOfTime } from 'react-icons/gi'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../../styles/home.css'
 import '../../styles/projects.css'
@@ -16,10 +17,21 @@ export default function Projects() {
   const filters = [
     { key: 'all', label: 'All', icon: faLayerGroup, color: '#10b981' },
     { key: 'full-stack', label: 'Full-Stack', icon: faCode, color: '#10b981' },
+    { key: 'frontend', label: 'Front-End', icon: faDesktop, color: '#10b981' },
     { key: 'uiux', label: 'UI/UX Design', icon: faPenNib, color: '#10b981' },
   ]
 
   const projects = [
+    {
+      title: 'Kape ni Juwana',
+      year: 'January 2026',
+      slug: 'kapenijuwana',
+      description: 'A front-end website for Kape ni Juwana, a local coffee shop featuring a clean and cozy aesthetic that showcases the menu, ambiance, and brand identity.',
+      category: ['frontend'],
+      technologies: ['Vue', 'VITE', 'CSS'],
+      liveLink: 'https://kapenijuwana.vercel.app/',
+      image: '/images/projects/kape-ni-juwana.png',
+    },
     {
       title: 'Mimi\'s Pet Grooming',
       year: 'June - October 2025',
@@ -147,7 +159,10 @@ export default function Projects() {
               </motion.div>
             ))}
           </div>
-
+          <div className="projects-coming-soon">
+            <GiSandsOfTime style={{ fontSize: '1.2rem', color: '#10b981' }} />
+            <p>More projects coming soon — stay tuned!</p>
+          </div>
         </div>
       </div>
 

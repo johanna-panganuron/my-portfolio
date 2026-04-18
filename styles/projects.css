@@ -25,7 +25,7 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -274,6 +274,7 @@
     border-color: var(--black);
     color: var(--black);
 }
+
 .filter-btn .filter-icon-wrap {
     display: inline-flex;
     align-items: center;
@@ -309,6 +310,23 @@
 
 [data-theme="dark"] .filter-btn.active .filter-icon-wrap {
     background: rgba(0, 0, 0, 0.15);
+}
+
+.projects-coming-soon {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.projects-coming-soon p {
+    margin: 0;
 }
 
 /* Mobile Responsive */
@@ -450,14 +468,23 @@
         padding: 0 0.5rem;
     }
 
+    .project-filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
     .filter-btn {
-        flex: 1;
+        flex: unset;
         justify-content: center;
-        padding: 0.45rem 0;
-        font-size: 0.68rem;
+        padding: 0.5rem 0;
+        font-size: 0.75rem;
         letter-spacing: 0;
         white-space: nowrap;
         text-align: center;
+        width: 100%;
     }
 
     .filter-btn .filter-icon-wrap {

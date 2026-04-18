@@ -4,6 +4,31 @@ import ProjectDetailClient from './ProjectDetailClient'
 
 // Project data
 export const projectDetails = {
+  'kapenijuwana': {
+    slug: 'kapenijuwana',
+    title: 'Kape ni Juwana',
+    description: 'A front-end website for Kape ni Juwana, a local coffee shop. The site features a clean and cozy aesthetic showcasing the menu, ambiance, and brand identity of the café.',
+    technologies: ['Vue', 'VITE', 'CSS'],
+    liveLink: 'https://kapenijuwana.vercel.app/',
+    mainImage: '/images/projects/kape-ni-juwana.png',
+    screenshots: [
+      '/images/projects/kape-ni-juwana.png',
+      '/images/projects/kape-ni-juwana2.png',
+      '/images/projects/kape-ni-juwana3.png',
+      '/images/projects/kape-ni-juwana4.png',
+      '/images/projects/kape-ni-juwana5.png',
+      '/images/projects/kape-ni-juwana6.png',
+    ],
+    features: [
+      'Menu Showcase',
+      'Responsive Design',
+      'Clean Café Aesthetic',
+    ],
+    actors: ['Visitor'],
+    role: 'Front-End Developer',
+    duration: '1 week',
+  },
+
   'pet-grooming': {
     slug: 'pet-grooming',
     title: 'Mimi\'s Pet Grooming',
