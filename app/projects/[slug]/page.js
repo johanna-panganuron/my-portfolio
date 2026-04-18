@@ -10,14 +10,14 @@ export const projectDetails = {
     description: 'A front-end website for Kape ni Juwana, a local coffee shop. The site features a clean and cozy aesthetic showcasing the menu, ambiance, and brand identity of the café.',
     technologies: ['Vue', 'VITE', 'CSS'],
     liveLink: 'https://kapenijuwana.vercel.app/',
-    mainImage: '/images/projects/kape-ni-juwana.png',
+    mainImage: '/images/projects/1kape-ni-juwana.png',
     screenshots: [
       '/images/projects/1kape-ni-juwana.png',
       '/images/projects/2kape-ni-juwana.png',
       '/images/projects/3kape-ni-juwana.png',
       '/images/projects/4kape-ni-juwana.png',
       '/images/projects/5kape-ni-juwana.png',
-      '/images/projects/7kape-ni-juwana.png',
+      '/images/projects/6kape-ni-juwana.png',
     ],
     features: [
       'Menu Showcase',
