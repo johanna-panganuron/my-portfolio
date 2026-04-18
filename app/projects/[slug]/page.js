@@ -12,12 +12,12 @@ export const projectDetails = {
     liveLink: 'https://kapenijuwana.vercel.app/',
     mainImage: '/images/projects/kape-ni-juwana.png',
     screenshots: [
-      '/images/projects/kape-ni-juwana.png',
-      '/images/projects/kape-ni-juwana2.png',
-      '/images/projects/kape-ni-juwana3.png',
-      '/images/projects/kape-ni-juwana4.png',
-      '/images/projects/kape-ni-juwana5.png',
-      '/images/projects/kape-ni-juwana6.png',
+      '/images/projects/1kape-ni-juwana.png',
+      '/images/projects/2kape-ni-juwana.png',
+      '/images/projects/3kape-ni-juwana.png',
+      '/images/projects/4kape-ni-juwana.png',
+      '/images/projects/5kape-ni-juwana.png',
+      '/images/projects/7kape-ni-juwana.png',
     ],
     features: [
       'Menu Showcase',

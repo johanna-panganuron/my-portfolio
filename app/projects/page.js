@@ -30,7 +30,7 @@ export default function Projects() {
       category: ['frontend'],
       technologies: ['Vue', 'VITE', 'CSS'],
       liveLink: 'https://kapenijuwana.vercel.app/',
-      image: '/images/projects/kape-ni-juwana.png',
+      image: '/images/projects/1kape-ni-juwana.png',
     },
     {
       title: 'Mimi\'s Pet Grooming',
