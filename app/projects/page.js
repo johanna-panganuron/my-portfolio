@@ -14,13 +14,6 @@ import '../../styles/projects.css'
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all')
 
-  const filters = [
-    { key: 'all', label: 'All', icon: faLayerGroup, color: '#10b981' },
-    { key: 'full-stack', label: 'Full-Stack', icon: faCode, color: '#10b981' },
-    { key: 'frontend', label: 'Front-End', icon: faDesktop, color: '#10b981' },
-    { key: 'uiux', label: 'UI/UX Design', icon: faPenNib, color: '#10b981' },
-  ]
-
   const projects = [
     {
       title: 'Kape ni Juwana',
@@ -31,6 +24,15 @@ export default function Projects() {
       technologies: ['Vue', 'VITE', 'CSS'],
       liveLink: 'https://kapenijuwana.vercel.app/',
       image: '/images/projects/1kape-ni-juwana.png',
+    },
+    {
+      title: 'J & C Events',
+      year: 'December 2025',
+      slug: 'j-and-c-events',
+      description: 'A front-end wedding and events planner website for J & C Events based in Cordova, Cebu. Features an elegant design with a gallery, quote form, FAQ section, and smooth scroll animations.',
+      category: ['frontend'],
+      technologies: ['React', 'VITE', 'CSS'],
+      image: '/images/projects/j-and-events-1.png',
     },
     {
       title: 'Mimi\'s Pet Grooming',
@@ -101,6 +103,18 @@ export default function Projects() {
     },
   ]
 
+  const filters = [
+    { key: 'all', label: 'All', icon: faLayerGroup, color: '#10b981' },
+    { key: 'full-stack', label: 'Full-Stack', icon: faCode, color: '#10b981' },
+    { key: 'frontend', label: 'Front-End', icon: faDesktop, color: '#10b981' },
+    { key: 'uiux', label: 'UI/UX Design', icon: faPenNib, color: '#10b981' },
+  ].map(f => ({
+    ...f,
+    count: f.key === 'all'
+      ? projects.length
+      : projects.filter(p => p.category?.includes(f.key)).length
+  }))
+
   const filtered = activeFilter === 'all'
     ? projects
     : projects.filter(p => p.category?.includes(activeFilter))
@@ -124,7 +138,6 @@ export default function Projects() {
           </motion.div>
 
           {/* Filter Buttons */}
-
           <motion.div
             className="project-filters"
             initial={{ opacity: 0, y: 20 }}
@@ -141,7 +154,7 @@ export default function Projects() {
                 <span className="filter-icon-wrap">
                   <FontAwesomeIcon icon={filter.icon} style={{ width: 14, height: 14 }} />
                 </span>
-                {filter.label}
+                {filter.label} ({filter.count})
               </button>
             ))}
           </motion.div>

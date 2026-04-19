@@ -154,7 +154,7 @@
   .footer-main {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .footer-brand {
@@ -172,6 +172,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   .footer-col h4 {
@@ -187,6 +188,7 @@
 
   .footer-bottom-container p {
     font-size: 0.72rem;
+    padding: 1.25rem 1rem;
   }
 }
 
@@ -215,5 +217,6 @@
 
   .footer-bottom-container p {
     font-size: 0.65rem;
+    padding: 1rem 1rem;
   }
 }

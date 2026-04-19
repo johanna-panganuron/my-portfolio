@@ -297,7 +297,19 @@
 .filter-btn.active .filter-icon-wrap {
     background: rgba(255, 255, 255, 0.2);
 }
+.filter-count {
+    color: #10b981;
+    font-size: 0.8rem;
+    margin-left: 2px;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
 
+.filter-btn.active .filter-count {
+    color: inherit;
+    background: none;
+}
 [data-theme="dark"] .filter-btn.active {
     background: #ffffff;
     color: #111111;

@@ -29,6 +29,37 @@ export const projectDetails = {
     duration: '1 week',
   },
 
+  'j-and-c-events': {
+    slug: 'j-and-c-events',
+    title: 'J & C Events',
+    description: 'J & C Events is a front-end wedding and events planner website for a Cebu-based events company founded by Catherine Inoc. The site features an elegant and minimal aesthetic with smooth scroll animations, a curated gallery with lightbox, an inquiry quote form, FAQ section, and a testimonials carousel — all designed to reflect the brand\'s dedication to crafting beautiful celebrations.',
+    technologies: ['React', 'VITE', 'CSS'],
+    liveLink: 'https://j-and-c-events-planner.vercel.app/',
+    mainImage: '/images/projects/j-and-events-1.png',
+    screenshots: [
+      '/images/projects/j-and-events-1.png',
+      '/images/projects/j-and-events-2.png',
+      '/images/projects/j-and-events-3.png',
+      '/images/projects/j-and-events-3.2.png',
+      '/images/projects/j-and-events-4.png',
+      '/images/projects/j-and-events-5.png',
+      '/images/projects/j-and-events-6.png',
+      '/images/projects/j-and-events-7.png',
+      '/images/projects/j-and-events-8.png',
+    ],
+    features: [
+      'Scroll Reveal Animations',
+      'Gallery with Lightbox',
+      'Quote / Inquiry Form',
+      'FAQ Accordion',
+      'Testimonials Carousel',
+      'Mobile Responsive',
+    ],
+    actors: ['Visitor'],
+    role: 'Front-End Developer',
+    duration: '1 week',
+  },
+
   'pet-grooming': {
     slug: 'pet-grooming',
     title: 'Mimi\'s Pet Grooming',

@@ -91,7 +91,17 @@ export default function Home() {
 
   const featuredProjects = [
     {
+      title: 'Kape ni Juwana',
+      year: 'January 2026',
+      slug: 'kapenijuwana',
+      description: 'A front-end website for Kape ni Juwana, a local coffee shop. The site features a clean and cozy aesthetic showcasing the menu, ambiance, and brand identity of the café.',
+      technologies: ['Vue', 'VITE', 'CSS'],
+      image: '/images/projects/1kape-ni-juwana.png',
+      link: '/projects/kapenijuwana'
+    },
+    {
       title: 'Mimi\'s Pet Grooming',
+      year: 'June - October 2025',
       slug: 'pet-grooming',
       description: 'A pet grooming management system that allows customers to book grooming appointments, manage pet profiles, and track services, while staffs efficiently handle bookings and service operations.',
       technologies: ['Vue', 'VITE', 'Node.js', 'Express.js', 'MySQL', 'CSS'],
@@ -99,20 +109,13 @@ export default function Home() {
       link: '/projects/pet-grooming'
     },
     {
-      title: 'CPC SSG Voting',
-      slug: 'cpc-voting',
-      description: 'A secure web-based voting system for Cordova Public College that allows students to vote online with one-vote-per-student enforcement and real-time result generation.',
-      technologies: ['Vue', 'Node.js', 'Express.js', 'MySQL', 'CSS'],
-      image: '/images/projects/voting-system.png',
-      link: '/projects/cpc-voting'
-    },
-    {
-      title: 'Task Tracker',
-      slug: 'task-tracker',
-      description: 'A task tracker system designed to help users efficiently organize, monitor, and manage their daily tasks and projects.',
-      technologies: ['Next.js', 'Laravel', 'MongoDB', 'SASS'],
-      image: '/images/projects/task-tracker.png',
-      link: '/projects/task-tracker'
+      title: 'Nailed by Via - Nail Extension',
+      year: 'April 2025',
+      slug: 'nailed-by-via',
+      description: 'A UI/UX design for a nail extension service booking app featuring service browsing, appointment scheduling, and a clean feminine aesthetic.',
+      technologies: ['Figma'],
+      image: '/images/projects/nail-extension.png',
+      link: '/projects/nailed-by-via'
     },
   ]
 
@@ -124,17 +127,21 @@ export default function Home() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content">
+              {/* Mobile */}
               <div className="hero-image-mobile">
                 <div className="profile-image-wrapper">
                   <img src="/images/profile.png" alt="Johanna Panganuron" className="profile-image profile-light" />
                   <img src="/images/profile-dark.png" alt="Johanna Panganuron" className="profile-image profile-dark" />
+                  <div className="mobile-badge mobile-badge-1"><FaLaptopCode /> Full-Stack Web Developer</div>
+                  <div className="mobile-badge mobile-badge-2"><FaPalette /> UI/UX Designer</div>
+                  <div className="mobile-badge mobile-badge-3"><FaLightbulb /> Problem Solver</div>
                 </div>
               </div>
               <h1>Hi, I'm Johanna <span className="wave">👋</span></h1>
-              <p className="hero-subtitle">
+              {/* <p className="hero-subtitle">
                 <CurrentIcon className="hero-subtitle-icon" key={currentRole} />
                 <span className="role-text">{displayText}<span className="cursor">|</span></span>
-              </p>
+              </p> */}
               <p className="hero-description">
                 I build scalable and user-focused web applications that turn ideas into real, functional solutions.
                 Passionate about innovation and continuous growth, I strive to create digital experiences that are both efficient and impactful.
@@ -144,10 +151,17 @@ export default function Home() {
                 <Link href="/contact" className="btn btn-outline">Get In Touch</Link>
               </div>
             </div>
+            {/* Desktop */}
             <div className="hero-image hero-image-desktop">
               <div className="profile-image-wrapper">
                 <img src="/images/profile.png" alt="Johanna Panganuron" className="profile-image profile-light" />
                 <img src="/images/profile-dark.png" alt="Johanna Panganuron" className="profile-image profile-dark" />
+
+                <div className="orbit-ring">
+                  <div className="hero-badge badge-1"><FaLaptopCode /> Full-Stack Web Developer</div>
+                  <div className="hero-badge badge-2"><FaPalette /> UI/UX Designer</div>
+                  <div className="hero-badge badge-3"><FaLightbulb /> Problem Solver</div>
+                </div>
               </div>
             </div>
           </div>
@@ -175,7 +189,9 @@ export default function Home() {
                 { icon: faGraduationCap, title: 'Continuous Learning', text: 'Keeping up with new technologies and improving my skills over time.' },
               ].map((item, index) => (
                 <div key={index} className="home-feature-card">
-                  <FontAwesomeIcon icon={item.icon} className="home-feature-icon" />
+                  <div className="home-feature-icon">
+                    <FontAwesomeIcon icon={item.icon} />
+                  </div>
                   <div>
                     <h4>{item.title}</h4>
                     <p>{item.text}</p>
@@ -189,13 +205,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* ───── TECH STACK ───── */}
       <section className="tech-stack">
         <div className="container">
           <h2 className="section-title scroll-animate">My Stack</h2>
           <div className="tech-icons-grid">
             {techStack.map((tech, index) => (
-              <div key={index} className="tech-icon-item scroll-animate">
+              <div
+                key={index}
+                className="tech-icon-item scroll-animate"
+                style={{ transitionDelay: `${index * 0.05}s` }}
+              >
                 <img src={tech.image} alt={tech.name} className="tech-icon-img-new" />
                 <span className="tech-icon-name">{tech.name}</span>
               </div>
