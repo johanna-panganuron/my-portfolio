@@ -16,13 +16,21 @@ export default function Projects() {
 
   const projects = [
     {
+      title: 'Blade & Beard Barber Shop',
+      year: 'February 2026',
+      slug: 'blade-and-beard-barber-shop',
+      description: 'A front-end barbershop website for Blade & Beard, a premium grooming destination in Cordova, Cebu. Features service listings, barber profiles, a gallery, and an appointment booking form with a sharp, masculine aesthetic.',
+      category: ['frontend'],
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      image: '/images/projects/blade-and-beard1.png',
+    },
+    {
       title: 'Kape ni Juwana',
       year: 'January 2026',
       slug: 'kapenijuwana',
       description: 'A front-end website for Kape ni Juwana, a local coffee shop featuring a clean and cozy aesthetic that showcases the menu, ambiance, and brand identity.',
       category: ['frontend'],
       technologies: ['Vue', 'VITE', 'CSS'],
-      liveLink: 'https://kapenijuwana.vercel.app/',
       image: '/images/projects/1kape-ni-juwana.png',
     },
     {
@@ -162,10 +170,9 @@ export default function Projects() {
           <div className="projects-grid">
             {filtered.map((project, index) => (
               <motion.div
-                key={project.slug}
+                key={`${activeFilter}-${project.slug}`}
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <ProjectCard {...project} />

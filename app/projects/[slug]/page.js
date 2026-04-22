@@ -4,6 +4,36 @@ import ProjectDetailClient from './ProjectDetailClient'
 
 // Project data
 export const projectDetails = {
+  'blade-and-beard-barber-shop': {
+    slug: 'blade-and-beard-barber-shop',
+    title: 'Blade & Beard Barbershop',
+    description: 'Blade & Beard is a front-end barbershop website for a premium grooming destination established in 2019 in Cordova, Cebu. The site features service listings with pricing, barber profiles, a gallery showcase, client testimonials, and an appointment reservation form — all wrapped in a sharp, masculine aesthetic that reflects the brand\'s dedication to precision grooming.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    liveLink: 'https://blade-and-beard-barbershop.vercel.app/',
+    mainImage: '/images/projects/blade-and-beard1.png',
+    screenshots: [
+      '/images/projects/blade-and-beard1.png',
+      '/images/projects/blade-and-beard2.png',
+      '/images/projects/blade-and-beard3.png',
+      '/images/projects/blade-and-beard4.png',
+      '/images/projects/blade-and-beard5.png',
+      '/images/projects/blade-and-beard6.png',
+      '/images/projects/blade-and-beard7.png',
+      '/images/projects/blade-and-beard8.png',
+    ],
+    features: [
+      'Service Listings with Pricing',
+      'Barber Profiles',
+      'Gallery Showcase',
+      'Client Testimonials',
+      'Appointment Reservation Form',
+      'Mobile Responsive',
+    ],
+    actors: ['Visitor'],
+    role: 'Front-End Developer',
+    duration: '1 week',
+  },
+
   'kapenijuwana': {
     slug: 'kapenijuwana',
     title: 'Kape ni Juwana',
