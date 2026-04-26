@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGraduationCap, faLaptopCode, faRocket, faCode, faDatabase, faUsers, faKeyboard, faTrophy, faKey, faShield } from '@fortawesome/free-solid-svg-icons'
-import { faXTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faComments, faLaptopCode, faArrowTrendUp, faCode, faDatabase, faLightbulb, faKeyboard, faTrophy } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import Link from 'next/link'
 import Chatbot from '@/components/Chatbot'
@@ -11,48 +12,67 @@ import ContactSection from '@/components/ContactSection'
 import '../../styles/about.css'
 
 export default function About() {
-  const skills = {
-    frontend: [
-      { name: 'CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-      { name: 'JavaScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-      { name: 'Vue', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-      { name: 'Vite', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' },
-      { name: 'React', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-      { name: 'Next.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
-    ],
-    backend: [
-      { name: 'Node.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-      { name: 'Express.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-      { name: 'PHP', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-      { name: 'Laravel', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg' },
-      { name: 'REST APIs', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
-      { name: 'JWT', image: null },
-      { name: 'OAuth', image: null },
-    ],
-    database: [
-      { name: 'MySQL', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-      { name: 'MongoDB', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-    ],
-    tools: [
-      { name: 'Figma', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-      { name: 'Git', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-      { name: 'GitHub', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-      { name: 'VS Code', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-      { name: 'Postman', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-      { name: 'npm', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg' },
-      { name: 'Vercel', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg' },
-    ],
-    ai: [
-      { name: 'ChatGPT', image: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
-      { name: 'Claude', image: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg' },
-      { name: 'Gemini', image: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg' },
-      { name: 'Cursor', image: 'https://cursor.sh/brand/icon.svg' },
-      { name: 'Grok', image: '/images/grok-logo.webp' },
-    ],
-  }
+  const [modalImg, setModalImg] = useState(null)
+  const [multiModal, setMultiModal] = useState(null)
 
   return (
     <div>
+      {/* Single image modal */}
+      {modalImg && (
+        <div className="single-modal-overlay" onClick={() => setModalImg(null)}>
+          <div className="img-modal-box" onClick={e => e.stopPropagation()}>
+            <button className="img-modal-close" onClick={() => setModalImg(null)}>
+              <FontAwesomeIcon icon={faTimes} /> Close
+            </button>
+            <img src={modalImg.src} alt={modalImg.alt} className="img-modal-img" />
+            {modalImg.label && <p className="img-modal-label">{modalImg.label}</p>}
+          </div>
+        </div>
+      )}
+
+      {/* Fullscreen carousel modal */}
+      {multiModal && (
+        <>
+          <div className="fullscreen-modal-overlay" onClick={() => setMultiModal(null)} />
+          <div className="fullscreen-modal-ui">
+            <div className="fullscreen-img-wrapper">
+              <button className="fullscreen-close" onClick={() => setMultiModal(null)}>
+                <FontAwesomeIcon icon={faTimes} /> Close
+              </button>
+              <button
+                className="fullscreen-nav left"
+                onClick={() => setMultiModal(prev => ({ ...prev, index: (prev.index - 1 + prev.imgs.length) % prev.imgs.length }))}
+              >
+                ‹
+              </button>
+              <img
+                src={multiModal.imgs[multiModal.index].src}
+                alt={multiModal.imgs[multiModal.index].alt}
+                className="fullscreen-img"
+              />
+              <button
+                className="fullscreen-nav right"
+                onClick={() => setMultiModal(prev => ({ ...prev, index: (prev.index + 1) % prev.imgs.length }))}
+              >
+                ›
+              </button>
+              <div className="fullscreen-dots">
+                {multiModal.imgs.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`fullscreen-dot ${i === multiModal.index ? 'active' : ''}`}
+                    onClick={() => setMultiModal(prev => ({ ...prev, index: i }))}
+                  />
+                ))}
+              </div>
+              {multiModal.imgs[multiModal.index].label && (
+                <p className="fullscreen-label">{multiModal.imgs[multiModal.index].label}</p>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+
       <div className="about-page">
         <div className="container">
 
@@ -112,8 +132,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Eager to bring ideas to life through web development. I thrive on challenges and enjoy continuous learning, always looking for ways to improve my skills and deliver better solutions.
-                Excited to contribute to a team where I can grow, collaborate, and make a meaningful impact.
+                I help small businesses and individuals build web solutions that actually work — from simple websites to full booking systems and dashboards. If you have an idea, I'll turn it into something real, functional, and easy to use.
               </motion.p>
               <motion.a
                 href="https://docs.google.com/document/d/1Rh-sByf3tgKurqGucIbHMmOJDI4HdjmdLX5zNKWp4Ww/edit?usp=sharing"
@@ -133,12 +152,12 @@ export default function About() {
           {/* Feature Cards */}
           <div className="feature-cards">
             {[
-              { icon: faCode, title: 'Clean Code', text: 'Writing code that is organized, readable, and easy to maintain.', color: '#10b981' },
-              { icon: faRocket, title: 'Problem Solving', text: 'Analyzing problems and finding practical, efficient solutions.', color: '#10b981' },
-              { icon: faDatabase, title: 'Database Management', text: 'Working with both SQL and NoSQL databases to handle data effectively.', color: '#10b981' },
-              { icon: faUsers, title: 'Team Collaboration', text: 'Collaborating with teammates and contributing to shared project goals.', color: '#10b981' },
-              { icon: faLaptopCode, title: 'Full-Stack Development', text: 'Developing web applications covering both frontend and backend.', color: '#10b981' },
-              { icon: faGraduationCap, title: 'Continuous Learning', text: 'Keeping up with new technologies and improving my skills over time.', color: '#10b981' },
+              { icon: faCode, title: 'Clean & Maintainable Code', text: 'Your project won\'t break down the road — I write code that\'s organized and built to last.', color: '#10b981' },
+              { icon: faLightbulb, title: 'Problem-First Thinking', text: 'I focus on solving your actual problem, not just writing code for the sake of it.', color: '#10b981' },
+              { icon: faDatabase, title: 'Database & Data Management', text: 'Your data is stored, structured, and retrieved reliably — no messy spreadsheets needed.', color: '#10b981' },
+              { icon: faComments, title: 'Clear Communication', text: 'I keep you updated throughout the process so you\'re never left guessing.', color: '#10b981' },
+              { icon: faLaptopCode, title: 'Full-Stack Capability', text: 'From the interface your users see to the database behind it — I handle the whole thing.', color: '#10b981' },
+              { icon: faArrowTrendUp, title: 'Always Improving', text: 'I stay up to date with modern tools so your project uses what actually works today.', color: '#10b981' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -159,7 +178,40 @@ export default function About() {
             ))}
           </div>
 
-          {/* Education + Experience side by side */}
+          {/* Experience - 1 row */}
+          <motion.div
+            className="about-section-card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="section-title">Experience</h2>
+            <div className="about-section-item">
+              <div className="about-award-icon briefcase">
+                <FontAwesomeIcon icon={faLaptopCode} />
+              </div>
+              <div>
+                <p className="about-section-title">Freelance Web Developer</p>
+                <p className="about-section-subtitle">Self-Employed • Remote</p>
+                <p className="about-section-year">April 2026 – Present</p>
+                <p className="about-section-desc">Designing and developing full-stack web solutions for small businesses and individuals — including booking systems, dashboards, and custom websites using Vue, React, Next.js, Node.js, PHP, Laravel and MySQL.</p>
+              </div>
+            </div>
+            <div className="about-section-item">
+              <div className="about-award-icon briefcase">
+                <FontAwesomeIcon icon={faKeyboard} />
+              </div>
+              <div>
+                <p className="about-section-title">Data Encoder (OJT)</p>
+                <p className="about-section-subtitle">DSWD - Pantawid Pamilyang Pilipino Program (4Ps) • Cordova, Cebu</p>
+                <p className="about-section-year">January 2026 – April 2026</p>
+                <p className="about-section-desc">Encoded and managed beneficiary records across structured datasets, ensuring data accuracy and consistency — reinforcing practical skills in data handling and attention to detail.</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Education | Honors - side by side */}
           <div className="about-side-by-side">
             <motion.div
               className="about-section-card"
@@ -179,57 +231,6 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Experience */}
-            <motion.div
-              className="about-section-card"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="section-title">Experience</h2>
-              <div className="about-section-item">
-                <div className="about-award-icon briefcase">
-                  <FontAwesomeIcon icon={faKeyboard} />
-                </div>
-                <div>
-                  <p className="about-section-title">Data Encoder (OJT)</p>
-                  <p className="about-section-subtitle">DSWD - Pantawid Pamilyang Pilipino Program (4Ps) • Cordova, Cebu</p>
-                  <p className="about-section-year">January 2026 – April 2026</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Certifications */}
-          <div className="about-side-by-side">
-            <motion.div
-              className="about-section-card"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="section-title">Certifications</h2>
-              <div className="about-section-item">
-                <img src="/images/tesda-logo.png" alt="TESDA" className="about-section-logo1" />
-                <div>
-                  <p className="about-section-title">Creative Web Design</p>
-                  <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
-                  <p className="about-section-year">August 11 - August 23, 2023</p>
-                </div>
-              </div>
-              <div className="about-section-item">
-                <img src="/images/tesda-logo.png" alt="TESDA" className="about-section-logo1" />
-                <div>
-                  <p className="about-section-title">Computer Systems Servicing (NC II)</p>
-                  <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
-                  <p className="about-section-year">June 26 - September 3, 2024</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Honors & Awards */}
             <motion.div
               className="about-section-card"
               initial={{ opacity: 0, y: 50 }}
@@ -239,7 +240,18 @@ export default function About() {
             >
               <h2 className="section-title">Honors & Awards</h2>
               <div className="about-section-item">
-                <div className="about-award-icon trophy">
+                <div
+                  className="about-award-icon trophy clickable-img"
+                  onClick={() => setMultiModal({
+                    imgs: [                     
+                      { src: '/images/nc-2.png', alt: 'Certificate 1 - 3rd Placer', label: '3rd Placer' },
+                      { src: '/images/nc-2.png', alt: 'Certificate 2 - Best Technical Implementation', label: 'Best Technical Implementation' },
+                      { src: '/images/project-demo.png', alt: 'Project Demo', label: 'Project Demo' },
+                      { src: '/images/awarding-photo.png', alt: 'Awarding Photo', label: 'Awarding Photo' },
+                    ],
+                    index: 0
+                  })}
+                >
                   <FontAwesomeIcon icon={faTrophy} />
                 </div>
                 <div>
@@ -251,45 +263,45 @@ export default function About() {
               </div>
             </motion.div>
           </div>
-          {/* Technical Skills */}
-          {/* <motion.div
-            className="skills-section"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+
+          {/* Certifications - 1 row */}
+          <motion.div
+            className="about-section-card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="section-title">Technical Skills</h2>
-            <div className="skills-grid">
-              {Object.entries(skills).map(([category, items]) => (
-                <div key={category} className="skill-category">
-                  <h3>
-                    {category === 'frontend' && 'Frontend Development'}
-                    {category === 'backend' && 'Backend Development'}
-                    {category === 'database' && 'Database'}
-                    {category === 'tools' && 'Tools & Others'}
-                    {category === 'ai' && 'AI Tools'}
-                  </h3>
-                  <div className="skill-tags">
-                    {items.map((skill, index) => (
-                      <span key={index} className="skill-tag">
-                        {skill.image ? (
-                          <img src={skill.image} alt={skill.name} className="skill-tag-icon" />
-                        ) : skill.isX ? (
-                          <FontAwesomeIcon icon={faXTwitter} className="skill-tag-fa-icon" style={{ color: '#000000' }} />
-                        ) : skill.name === 'OAuth' ? (
-                          <FontAwesomeIcon icon={faShield} className="skill-tag-fa-icon" style={{ color: '#60a5fa' }} />
-                        ) : (
-                          <FontAwesomeIcon icon={faKey} className="skill-tag-fa-icon" style={{ color: '#d97706' }} />
-                        )}
-                        {skill.name}
-                      </span>
-                    ))}
-                  </div>
+            <h2 className="section-title">Certifications</h2>
+            <div className="certifications-grid">
+              <div className="about-section-item">
+                <img
+                  src="/images/tesda-logo.png"
+                  alt="TESDA"
+                  className="about-section-logo1 clickable-img"
+                  onClick={() => setModalImg({ src: '/images/creative-web-design.png', alt: 'Creative Web Design', label: 'Creative Web Design' })}
+                />
+                <div>
+                  <p className="about-section-title">Creative Web Design</p>
+                  <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
+                  <p className="about-section-year">August 11 - August 23, 2023</p>
                 </div>
-              ))}
+              </div>
+              <div className="about-section-item">
+                <img
+                  src="/images/tesda-logo.png"
+                  alt="TESDA"
+                  className="about-section-logo1 clickable-img"
+                  onClick={() => setModalImg({ src: '/images/nc-2.png', alt: 'Computer Systems Servicing NC II', label: 'Computer Systems Servicing (NC II)' })}
+                />
+                <div>
+                  <p className="about-section-title">Computer Systems Servicing (NC II)</p>
+                  <p className="about-section-subtitle">Cebu Call Center Academy • TESDA</p>
+                  <p className="about-section-year">June 26 - September 3, 2024</p>
+                </div>
+              </div>
             </div>
-          </motion.div> */}
+          </motion.div>
 
           {/* Timeline */}
           <motion.div

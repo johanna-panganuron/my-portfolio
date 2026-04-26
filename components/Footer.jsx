@@ -36,7 +36,7 @@ export default function Footer() {
                     />
                     <p>I'm Junior Full-Stack Web Developer passionate about building functional and user-friendly web applications.</p>
                     <div className="footer-socials">
-                        <a href="https://facebook.com/juwanaxz" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
+                        <a href="https://facebook.com/johannaxzpanganuron" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
                             <FontAwesomeIcon icon={faFacebook} />
                         </a>
                         <a href="https://github.com/johanna-panganuron" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">

@@ -15,8 +15,27 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all')
 
   const projects = [
+  
     {
-      title: 'Blade & Beard Barber Shop',
+      title: 'Juwxna Streetwear',
+      year: 'April 2026',
+      slug: 'juwxna-streetwear',
+      description: 'A front-end e-commerce website for Juwxna Streetwear, a local streetwear brand born in Catarman, Cordova, Cebu. Features a full product catalog, lookbook editorial, cart system, and a dark urban aesthetic built for the streets.',
+      category: ['frontend'],
+      technologies: ['Nuxt.js', 'Vue', 'TypeScript', 'Tailwind CSS'],
+      image: '/images/projects/juwxna-streetwear1.png',
+    },
+    {
+      title: 'Cebu Tours',
+      year: 'March 2026',
+      slug: 'cebu-tours',
+      description: 'A front-end travel and tourism website for Cebu Tours, a local tour operator based in Cordova, Cebu. Features island hopping packages, whale shark watching, canyoneering adventures, destination highlights, guide profiles, and a booking inquiry form — all wrapped in a clean coastal aesthetic.',
+      category: ['frontend'],
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+      image: '/images/projects/cebu-tours1.png',
+    },
+    {
+      title: 'Blade & Beard',
       year: 'February 2026',
       slug: 'blade-and-beard-barber-shop',
       description: 'A front-end barbershop website for Blade & Beard, a premium grooming destination in Cordova, Cebu. Features service listings, barber profiles, a gallery, and an appointment booking form with a sharp, masculine aesthetic.',

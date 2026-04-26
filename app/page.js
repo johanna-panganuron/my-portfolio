@@ -4,12 +4,14 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { FaLaptopCode, FaCode, FaCog, FaPalette, FaLightbulb } from 'react-icons/fa'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGraduationCap, faLaptopCode, faRocket, faCode, faDatabase, faUsers, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faLightbulb, faLaptopCode, faComments, faCode, faDatabase, faArrowTrendUp, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import ProjectCard from '@/components/ProjectCard'
 import Chatbot from '@/components/Chatbot'
 import ContactSection from '@/components/ContactSection'
-import '../styles/projects.css'
+import ServicesSection from '@/components/ServicesSection'
 import '../styles/home.css'
+import '../styles/services-section.css'
+import '../styles/projects.css'
 
 const roles = [
   { text: 'Junior Full-Stack Web Developer', icon: FaLaptopCode },
@@ -71,6 +73,8 @@ export default function Home() {
     { name: 'Vue', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
     { name: 'React', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Next.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+    { name: 'Nuxt.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg'},
+
     { name: 'Vite', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' },
     { name: 'CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { name: 'SASS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
@@ -172,23 +176,22 @@ export default function Home() {
       <section className="home-about scroll-animate">
         <div className="container">
           <h2 className="section-title">About Me</h2>
-          <div className="home-about-content">
+          <div className="home-about-content scroll-animate">
             <h3>Johanna B. Panganuron</h3>
             <p className="home-about-role">Junior Full-Stack Web Developer</p>
             <p className="home-about-bio">
-              Eager to bring ideas to life through web development. I thrive on challenges and enjoy continuous learning, always looking for ways to improve my skills and deliver better solutions.
-              Excited to contribute to a team where I can grow, collaborate, and make a meaningful impact.
+              I help small businesses and individuals build web solutions that actually work — from simple websites to full booking systems and dashboards. If you have an idea, I'll turn it into something real, functional, and easy to use.
             </p>
             <div className="home-feature-cards">
               {[
-                { icon: faCode, title: 'Clean Code', text: 'Writing code that is organized, readable, and easy to maintain.' },
-                { icon: faRocket, title: 'Problem Solving', text: 'Analyzing problems and finding practical, efficient solutions.' },
-                { icon: faDatabase, title: 'Database Management', text: 'Working with both SQL and NoSQL databases to handle data effectively.' },
-                { icon: faUsers, title: 'Team Collaboration', text: 'Collaborating with teammates and contributing to shared project goals.' },
-                { icon: faLaptopCode, title: 'Full-Stack Development', text: 'Developing web applications covering both frontend and backend.' },
-                { icon: faGraduationCap, title: 'Continuous Learning', text: 'Keeping up with new technologies and improving my skills over time.' },
+                { icon: faCode, title: 'Clean & Maintainable Code', text: 'Your project won\'t break down the road — I write code that\'s organized and built to last.' },
+                { icon: faLightbulb, title: 'Problem-First Thinking', text: 'I focus on solving your actual problem, not just writing code for the sake of it.' },
+                { icon: faDatabase, title: 'Database & Data Management', text: 'Your data is stored, structured, and retrieved reliably — no messy spreadsheets needed.' },
+                { icon: faComments, title: 'Clear Communication', text: 'I keep you updated throughout the process so you\'re never left guessing.' },
+                { icon: faLaptopCode, title: 'Full-Stack Capability', text: 'From the interface your users see to the database behind it — I handle the whole thing.' },
+                { icon: faArrowTrendUp, title: 'Always Improving', text: 'I stay up to date with modern tools so your project uses what actually works today.' },
               ].map((item, index) => (
-                <div key={index} className="home-feature-card">
+                <div key={index} className="home-feature-card scroll-animate" style={{ transitionDelay: `${index * 0.1}s` }}>
                   <div className="home-feature-icon">
                     <FontAwesomeIcon icon={item.icon} />
                   </div>
@@ -199,17 +202,20 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Link href="/about" className="btn btn-primary home-about-btn">
+            <Link href="/about" className="btn btn-primary home-about-btn scroll-animate">
               Learn More <FontAwesomeIcon icon={faArrowRight} />
             </Link>
           </div>
         </div>
       </section>
 
+      {/* ───── Services ───── */}
+      <ServicesSection />
+
       {/* ───── TECH STACK ───── */}
       <section className="tech-stack">
         <div className="container">
-          <h2 className="section-title scroll-animate">My Stack</h2>
+          <h2 className="section-title scroll-animate">Tech Stack</h2>
           <div className="tech-icons-grid">
             {techStack.map((tech, index) => (
               <div
@@ -222,6 +228,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="tech-stack-cta scroll-animate">
+          <Link href="/skills" className="btn btn-primary">View All Skills</Link>
         </div>
       </section>
 
@@ -247,6 +256,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
 
       {/* ───── CONTACT ───── */}
       <ContactSection />

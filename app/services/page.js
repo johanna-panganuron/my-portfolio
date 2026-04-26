@@ -1,131 +1,166 @@
 'use client'
-
-import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode, faMobileAlt, faPalette, faDatabase, faGlobe, faServer } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
+import {
+  faGlobe,
+  faCalendarCheck,
+  faPaintBrush,
+  faShoppingCart,
+  faChartBar,
+  faWrench,
+  faCheckCircle,
+} from '@fortawesome/free-solid-svg-icons'
+import { motion } from 'framer-motion'
 import ContactSection from '@/components/ContactSection'
 import Chatbot from '@/components/Chatbot'
 import '../../styles/services.css'
 
 const services = [
-    {
-        icon: faGlobe,
-        title: 'Full-Stack Web Development',
-        description: 'End-to-end web application development covering both frontend and backend. I build scalable, functional, and user-friendly web apps tailored to your needs.',
-        technologies: ['React', 'Next.js', 'Vue', 'Node.js', 'Laravel'],
-    },
-    {
-        icon: faCode,
-        title: 'Frontend Development',
-        description: 'Clean, responsive, and interactive user interfaces built with modern frameworks. Focused on performance, accessibility, and great user experience.',
-        technologies: ['JavaScript', 'TypeScript', 'React', 'Vue', 'Next.js', 'CSS', 'SASS', 'Tailwind CSS'],
-    },
-    {
-        icon: faServer,
-        title: 'Backend Development',
-        description: 'Robust server-side logic, REST APIs, and database integration. I ensure your application handles data efficiently and securely.',
-        technologies: ['Node.js', 'Express.js', 'PHP', 'Laravel', 'REST APIs'],
-    },
-    {
-        icon: faDatabase,
-        title: 'Database Design',
-        description: 'Designing and managing both relational and non-relational databases. Optimized schemas, efficient queries, and reliable data storage.',
-        technologies: ['MySQL', 'MongoDB'],
-    },
-    {
-        icon: faPalette,
-        title: 'UI/UX Design',
-        description: 'Designing clean and intuitive interfaces using Figma. From wireframes to high-fidelity prototypes, I focus on creating great digital experiences.',
-        technologies: ['Figma', 'Wireframing', 'Prototyping'],
-    },
-    {
-        icon: faMobileAlt,
-        title: 'Responsive Web Design',
-        description: 'Making sure your website looks and works great on all screen sizes — desktop, tablet, and mobile — using modern CSS techniques.',
-        technologies: ['CSS', 'Flexbox', 'Grid', 'Media Queries'],
-    },
+  {
+    icon: faGlobe,
+    number: '01',
+    title: 'Business Website',
+    client: '"I need a website for my business."',
+    description:
+      'A clean, fast, and mobile-friendly website that represents your brand online. Perfect for small businesses, restaurants, shops, and personal brands.',
+    includes: [
+      'Responsive design (mobile, tablet, desktop)',
+      'Company profile or landing page',
+      'Product or menu catalog',
+      'Contact form integration',
+    ],
+  },
+  {
+    icon: faCalendarCheck,
+    number: '02',
+    title: 'Booking & Reservation System',
+    client: '"I need my customers to book online."',
+    description:
+      'A full booking flow that lets your customers schedule appointments, manage reservations, and receive confirmations — all without manual back-and-forth.',
+    includes: [
+      'Customer-facing booking form',
+      'Appointment scheduling & calendar',
+      'Admin panel to manage bookings',
+      'Status tracking (pending, confirmed, done)',
+    ],
+  },
+  {
+    icon: faPaintBrush,
+    number: '03',
+    title: 'UI/UX Design',
+    client: '"I want a design before we build."',
+    description:
+      'See exactly what your product will look like before a single line of code is written. Wireframes and high-fidelity mockups in Figma so you can refine the vision first.',
+    includes: [
+      'Wireframes & user flow diagrams',
+      'High-fidelity Figma mockups',
+      'Mobile & desktop screen designs',
+      'Clickable prototype for review',
+    ],
+  },
+  {
+    icon: faShoppingCart,
+    number: '04',
+    title: 'Online Store',
+    client: '"I want to sell my products online."',
+    description:
+      'A simple, functional e-commerce experience where customers can browse your products, place orders, and you can manage everything from a clean admin panel.',
+    includes: [
+      'Product listing & detail pages',
+      'Shopping cart & order flow',
+      'Order management for admins',
+      'Stock & inventory tracking',
+    ],
+  },
+  {
+    icon: faChartBar,
+    number: '05',
+    title: 'Admin Dashboard & Management System',
+    client: '"I need to manage my business better."',
+    description:
+      'A custom internal tool built specifically for your business — track inventory, manage staff, monitor operations, and make better decisions with clear data.',
+    includes: [
+      'Custom dashboard with key metrics',
+      'Inventory or product management',
+      'Staff or user management',
+      'Reports & data overview',
+    ],
+  },
+  {
+    icon: faWrench,
+    number: '06',
+    title: 'Website Revamp & Maintenance',
+    client: '"My existing website needs fixing."',
+    description:
+      'Whether your site looks outdated, runs slow, or breaks on mobile — I can redesign, fix, and improve it so it works the way it should.',
+    includes: [
+      'Full redesign or partial update',
+      'Mobile responsiveness fixes',
+      'Bug fixes & performance improvements',
+      'Ongoing support & maintenance',
+    ],
+  },
 ]
-const techIcons = {
-    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-    'Vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-    'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    'Laravel': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
-    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    'CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    'SASS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg',
-    'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-    'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-    'Express.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-    'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-    'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-    'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-    'REST APIs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
-    'Wireframing': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-    'Prototyping': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-    'Flexbox': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    'Grid': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    'Media Queries': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-}
-export default function Services() {
-    return (
-        <div>
-            <div className="services-page">
-                <div className="container">
 
-                    <motion.div
-                        className="services-header"
-                        initial={{ opacity: 0, y: -30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h1 className="section-title">Services</h1>
-                        <p className="section-subtitle">
-                            Here's what I can help you with. Whether it's a website, web app, or a custom system — I've got you covered.
-                        </p>
-                    </motion.div>
+export default function ServicesPage() {
+  return (
+    <div>
+      <div className="services-page">
+        <div className="container">
 
-                    <div className="services-grid">
-                        {services.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                className="service-card"
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                            >
-                                <div className="service-icon">
-                                    <FontAwesomeIcon icon={service.icon} />
-                                </div>
-                                <h2 className="service-title">{service.title}</h2>
-                                <p className="service-description">{service.description}</p>
-                                <div className="service-tech">
-                                    {service.technologies.map((tech, i) => (
-                                        <span key={i} className="service-tech-tag">
-                                            {techIcons[tech] && (
-                                                <img
-                                                    src={techIcons[tech]}
-                                                    alt={tech}
-                                                    style={{ width: 14, height: 14, objectFit: 'contain', flexShrink: 0 }}
-                                                />
-                                            )}
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+          {/* Header */}
+          <motion.div
+            className="services-page-header"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="section-title">Services</h1>
+            <p className="section-subtitle">
+              Here's how I can help bring your idea to life — no tech jargon, just real solutions.
+            </p>
+          </motion.div>
 
+          {/* Services List */}
+          <div className="services-page-list">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="services-page-item"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <div className="services-page-left">
+                  <span className="services-page-number">{service.number}</span>
+                  <div className="services-page-icon">
+                    <FontAwesomeIcon icon={service.icon} />
+                  </div>
                 </div>
-            </div>
 
-            <ContactSection />
-            <Chatbot />
+                <div className="services-page-body">
+                  <p className="services-page-client">{service.client}</p>
+                  <h3 className="services-page-title">{service.title}</h3>
+                  <p className="services-page-desc">{service.description}</p>
+                  <ul className="services-page-includes">
+                    {service.includes.map((item, i) => (
+                      <li key={i}>
+                        <FontAwesomeIcon icon={faCheckCircle} className="services-check-icon" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-    )
+      </div>
+
+      <ContactSection />
+      <Chatbot />
+      
+    </div>
+  )
 }

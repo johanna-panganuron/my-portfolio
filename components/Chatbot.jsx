@@ -60,7 +60,7 @@ export default function Chatbot() {
       return "I won 3rd Place and Best Technical Implementation at the Mini Hackathon (Figma) during IT Day at Cordova Public College in March 2026. 🏆"
 
     } else if (msg.includes('contact') || msg.includes('email') || msg.includes('reach') || msg.includes('phone')) {
-      return "You can reach me at johannapanganuron@gmail.com or call 0949 1280 100.\n\n🔗 Find me online:\n• Facebook: facebook.com/juwanaxz\n• LinkedIn: linkedin.com/in/johanna-panganuron"
+      return "You can reach me at johannapanganuron@gmail.com or call 0949 1280 100.\n\n🔗 Find me online:\n• Facebook: facebook.com/johannaxzpanganuron\n• LinkedIn: linkedin.com/in/johanna-panganuron"
 
     } else if (msg.includes('about') || msg.includes('who are you') || msg.includes('tell me about')) {
       return "I'm Johanna, a fresh IT graduate and Junior Full-Stack Web Developer passionate about building functional and user-friendly web applications. Check my About page to learn more. 😊"

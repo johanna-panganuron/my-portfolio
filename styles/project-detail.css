@@ -120,7 +120,8 @@
 [data-theme="dark"] .tech-badge img[src*="nextjs"],
 [data-theme="dark"] .tech-badge img[src*="express"],
 [data-theme="dark"] .tech-badge img[src*="json"],
-[data-theme="dark"] .tech-badge img[src*="socketio"] {
+[data-theme="dark"] .tech-badge img[src*="socketio"],
+[data-theme="dark"] .tech-badge img[src*="framermotion"] {
     filter: invert(1);
 }
 

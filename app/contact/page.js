@@ -40,7 +40,7 @@ const contactInfo = [
 ]
 
 const socials = [
-  { Icon: FaFacebook, label: 'Facebook', href: 'https://facebook.com/juwanaxz', color: '#1877f2' },
+  { Icon: FaFacebook, label: 'Facebook', href: 'https://facebook.com/johannaxzpanganuron', color: '#1877f2' },
   { Icon: FaGithub, label: 'GitHub', href: 'https://github.com/johanna-panganuron', color: '#6e40c9' },
   { Icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/johanna-panganuron/', color: '#0077b5' },
 ]

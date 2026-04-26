@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import '../styles/contact-section.css'
 
 export default function ContactSection() {
@@ -14,19 +16,19 @@ export default function ContactSection() {
         >
             <div className="home-contact-inner">
                 <div className="home-contact-box">
-                    <h2 className="section-title">Get In Touch</h2>
+                    <h2 className="home-contact-title">Have a project in mind?</h2>
                     <p className="home-contact-subtitle">
-                        Whether it's a project, a question, or just a{' '}
+                        Let's talk about what you{' '}
                         <span style={{
                             background: 'rgba(16, 185, 129, 0.15)',
                             color: '#10b981',
-                            padding: '0.1rem 0.5rem',
+                            padding: '0.2rem 0.5rem',
                             borderRadius: '3px',
                             fontWeight: '600'
-                        }}>hello</span>{' '}
-                        — my inbox is always open.
+                        }}>need</span>{' '}
+                        and how I can help.
                     </p>
-                    <Link href="/contact" className="btn btn-primary">Contact Me</Link>
+                    <Link href="/contact" className="btn btn-primary"> Get In Touch </Link>
                 </div>
             </div>
         </motion.section>

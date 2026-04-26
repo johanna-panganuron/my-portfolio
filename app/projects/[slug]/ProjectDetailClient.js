@@ -17,6 +17,7 @@ const techIcons = {
   'Vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
   'Vue CLI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
   'Vuex': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'Nuxt.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg',
   'VITE': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg',
   'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   'Next.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
@@ -47,6 +48,12 @@ const techIcons = {
   'ESLint': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg',
   'Chart.js': '/images/chart-js.png',
   'Toastify': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'Framer Motion': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg',
+  'GSAP': '/images/gsap.svg',
+  'Leaflet': 'https://leafletjs.com/docs/images/logo.png',
+  'React Hook Form': 'https://react-hook-form.com/images/logo/react-hook-form-logo-only.png',
+  'Pinia': 'https://pinia.vuejs.org/logo.svg',
+
 }
 
 export default function ProjectDetailClient({ project }) {

@@ -4,9 +4,72 @@ import ProjectDetailClient from './ProjectDetailClient'
 
 // Project data
 export const projectDetails = {
+
+  'cebu-tours': {
+    slug: 'cebu-tours',
+    title: 'Cebu Tours',
+    description: 'Cebu Tours is a front-end travel and tourism website for a local tour operator based in Cordova, Cebu. The site features island hopping packages, whale shark watching in Oslob, canyoneering adventures in Kawasan Falls, destination highlights with an interactive map, local guide profiles, client testimonials, and a booking inquiry form — all wrapped in a clean coastal aesthetic that captures the beauty of the Pearl of the South.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Leaflet', 'React Hook Form'],
+    liveLink: 'https://cebu-tours.vercel.app/',
+    mainImage: '/images/projects/cebu-tours1.png',
+    screenshots: [
+      '/images/projects/cebu-tours1.png',
+      '/images/projects/cebu-tours2.png',
+      '/images/projects/cebu-tours4.png',
+      '/images/projects/cebu-tours3.png',
+      '/images/projects/cebu-tours5.png',
+      '/images/projects/cebu-tours6.png',
+      '/images/projects/cebu-tours6.2.png',
+      '/images/projects/cebu-tours7.png',
+      '/images/projects/cebu-tours8.png',
+      '/images/projects/cebu-tours9.png',
+    ],
+    features: [
+      'Tour Packages Showcase',
+      'Interactive Leaflet Map',
+      'Destination Highlights',
+      'Guide Profiles',
+      'Client Testimonials',
+      'Booking Inquiry Form',
+      'Scroll Animations',
+      'Mobile Responsive',
+    ],
+    actors: ['Visitor'],
+    role: 'Front-End Developer',
+    duration: '1 week',
+  },
+
+  'juwxna-streetwear': {
+    slug: 'juwxna-streetwear',
+    title: 'Juwxna Streetwear',
+    description: 'Juwxna Streetwear is a front-end e-commerce website for a local streetwear brand born in Catarman, Cordova, Cebu. The site features a full product catalog with size and color selection, a cart system powered by Pinia, a lookbook editorial section, an about page, and a dark urban aesthetic built for the streets. Every detail — from the heavyweight typography to the red accent system — reflects the brand\'s identity: raw, grounded, and unapologetically local.',
+    technologies: ['Nuxt.js', 'Vue', 'TypeScript', 'Tailwind CSS', 'Pinia', 'GSAP'],
+    liveLink: '',
+    mainImage: '/images/projects/juwxna-streetwear1.png',
+    screenshots: [
+      '/images/projects/juwxna-streetwear.png',
+      '/images/projects/juwxna-streetwear-2.png',
+      '/images/projects/juwxna-streetwear-3.png',
+      '/images/projects/juwxna-streetwear-4.png',
+      '/images/projects/juwxna-streetwear-5.png',
+    ],
+    features: [
+      'Product Catalog with Filtering',
+      'Size & Color Selection',
+      'Cart System (Pinia)',
+      'Lookbook Editorial Page',
+      'About Page',
+      'GSAP Scroll Animations',
+      'Mobile Responsive',
+    ],
+    actors: ['Visitor', 'Shopper'],
+    role: 'Front-End Developer',
+    duration: '1 week',
+  },
+
   'blade-and-beard-barber-shop': {
     slug: 'blade-and-beard-barber-shop',
-    title: 'Blade & Beard Barbershop',
+    title: 'Blade & Beard',
     description: 'Blade & Beard is a front-end barbershop website for a premium grooming destination established in 2019 in Cordova, Cebu. The site features service listings with pricing, barber profiles, a gallery showcase, client testimonials, and an appointment reservation form — all wrapped in a sharp, masculine aesthetic that reflects the brand\'s dedication to precision grooming.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     liveLink: 'https://blade-and-beard-barbershop.vercel.app/',
